@@ -1,0 +1,31 @@
+{
+  "name": "techlines",
+  "version": "1.0.0",
+  "description": "The backend for techlines",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "client": "npm run start --prefix client",
+    "server": "node server/index.js",
+    "app": "concurrently npm \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vader1970/techlines.git"
+  },
+  "author": "Dan Wilkey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vader1970/techlines/issues"
+  },
+  "homepage": "https://github.com/Vader1970/techlines#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.0"
+  }
+}
