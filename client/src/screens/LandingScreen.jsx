@@ -55,7 +55,7 @@ const LandingScreen = () => (
       <Flex flex='1' overflow='hidden'>
         <Image
           src='images/landing.jpg'
-          alt='Man looking at watch'
+          alt='Picture of a black sphere'
           fallback={<Skeleton />}
           maxH='550px'
           minW='300px'
