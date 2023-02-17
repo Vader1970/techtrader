@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Vader1970/techtrader.git"
+    "url": "git+https://github.com/Vader1970/techtrader.git"
   },
-  "author": "Dan Wilkey ",
+  "author": "Dan Wilkey Supriya Sharma Tin Mariano",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Vader1970/techtrader/issues"
