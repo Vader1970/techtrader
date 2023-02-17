@@ -94,7 +94,7 @@ const Navbar = () => {
           >
             <Flex alignItems='center'>
               <Icon as={GiTechnoHeart} h={6} w={6} color={isHovering ? "cyan.400" : "orange.400"} />
-              <Text fontWeight='extrabold'>Tech Lines</Text>
+              <Text fontWeight='extrabold'>Tech Trader</Text>
             </Flex>
           </Link>
           <HStack as='nav' spacing={4} display={{ base: "none", md: "flex" }}>

@@ -71,7 +71,7 @@ const Footer = () => (
       <Divider />
       <Stack pt='8' pb='12' justify='space-between' direction={{ base: "column-reverse", md: "row" }} align='center'>
         <Text fontSize='sm' color='subtle'>
-          &copy; {new Date().getFullYear()} Tech Lines, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} Tech Trader, Inc. All rights reserved.
         </Text>
         <ButtonGroup variant='ghost'>
           <IconButton as='a' href='#' aria-label='LinkedIn' icon={<FaLinkedin fontSize='1.25rem' />} />

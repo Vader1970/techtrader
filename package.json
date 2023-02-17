@@ -1,5 +1,5 @@
 {
-  "name": "techlines",
+  "name": "techtrader",
   "version": "1.0.0",
   "description": "The backend for techlines",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vader1970/techlines.git"
+    "url": "https://github.com/Vader1970/techtrader.git"
   },
-  "author": "Dan Wilkey",
+  "author": "Dan Wilkey ",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vader1970/techlines/issues"
+    "url": "https://github.com/Vader1970/techtrader/issues"
   },
-  "homepage": "https://github.com/Vader1970/techlines#readme",
+  "homepage": "https://github.com/Vader1970/techtrader#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.6.0",
