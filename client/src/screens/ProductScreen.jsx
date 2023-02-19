@@ -96,11 +96,11 @@ const ProductScreen = () => {
             maxW={{ base: "3xl", lg: "5xl" }}
             mx='auto'
             px={{ base: "4", md: "8", lg: "12" }}
-            py={{ base: "4", md: "8", lg: "12" }}
+            py={{ base: "6", md: "8", lg: "12" }}
           >
             <Stack direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
               <Stack
-                pr={{ base: "0", md: "4" }}
+                pr={{ base: "0", md: "12" }}
                 spacing={{ base: "8", md: "4" }}
                 flex='1.5'
                 mb={{ base: "12", md: "none" }}
@@ -148,7 +148,7 @@ const ProductScreen = () => {
                   <Button isDisabled={product.stock === 0} colorScheme='orange' onClick={() => addItem()}>
                     Add to cart
                   </Button>
-                  <Stack w='270px'>
+                  <Stack width='270px'>
                     <Flex alignItems='center'>
                       <BiPackage size='20px' />
                       <Text fontWeight='medium' fontSize='sm' ml='2'>
@@ -161,6 +161,7 @@ const ProductScreen = () => {
                         2 year extended warranty
                       </Text>
                     </Flex>
+
                     <Flex alignItems='center'>
                       <BiSupport size='20px' />
                       <Text fontWeight='medium' fontSize='sm' ml='2'>
@@ -232,26 +233,24 @@ const ProductScreen = () => {
                 Reviews
               </Text>
               <SimpleGrid minChildWidth='300px' spacingX='40px' spacingY='20px'>
-                {product.reviews.map((review) => {
-                  return (
-                    <Box key={review._id}>
-                      <Flex spacing='2px' alignItems='center'>
-                        <StarIcon color='orange.500' />
-                        <StarIcon color={review.rating >= 2 ? "orange.500" : "gray.200"} />
-                        <StarIcon color={review.rating >= 3 ? "orange.500" : "gray.200"} />
-                        <StarIcon color={review.rating >= 4 ? "orange.500" : "gray.200"} />
-                        <StarIcon color={review.rating >= 5 ? "orange.500" : "gray.200"} />
-                        <Text fontWeight='semibold' ml='4px'>
-                          {review.title && review.title}
-                        </Text>
-                      </Flex>
-                      <Box py='12px'>{review.comment}</Box>
-                      <Text fontSize='sm' color='gray.400'>
-                        by {review.name}, {new Date(review.createdAt).toDateString()}
+                {product.reviews.map((review) => (
+                  <Box key={review._id}>
+                    <Flex spacing='2px' alignItems='center'>
+                      <StarIcon color='orange.500' />
+                      <StarIcon color={review.rating >= 2 ? "orange.500" : "gray.200"} />
+                      <StarIcon color={review.rating >= 3 ? "orange.500" : "gray.200"} />
+                      <StarIcon color={review.rating >= 4 ? "orange.500" : "gray.200"} />
+                      <StarIcon color={review.rating >= 5 ? "orange.500" : "gray.200"} />
+                      <Text fontWeight='semibold' ml='4px'>
+                        {review.title && review.title}
                       </Text>
-                    </Box>
-                  );
-                })}
+                    </Flex>
+                    <Box py='12px'>{review.comment}</Box>
+                    <Text fontSize='sm' color='gray.400'>
+                      by {review.name}, {new Date(review.createdAt).toDateString()}
+                    </Text>
+                  </Box>
+                ))}
               </SimpleGrid>
             </Stack>
           </Box>
