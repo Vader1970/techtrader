@@ -144,7 +144,7 @@ const Navbar = () => {
                   <MdLocalShipping />
                   <Text ml='2'>Your Orders</Text>
                 </MenuItem>
-                <MenuItem as={ReactLink} to='#'>
+                <MenuItem as={ReactLink} to='/listings'>
                   <BsList />
                   <Text ml='2'>Listings</Text>
                 </MenuItem>
