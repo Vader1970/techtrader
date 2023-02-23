@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GiTechnoHeart } from "react-icons/gi";
+import MyIcon from "../icon/techtrader.png";
 
 // Define Footer component
 const Footer = () => (
@@ -34,7 +35,9 @@ const Footer = () => (
         <Stack spacing={{ base: "6", md: "8" }} align='start'>
           <Flex alignItems='center'>
             {/* Render an icon for the app */}
-            <Icon as={GiTechnoHeart} h={10} w={10} color='orange.400' />
+            <Box height={20} width={20}>
+              <img src={MyIcon} alt='Tech Trader icon' />
+            </Box>
             <Text fontSize='2xl' fontWeight='extrabold'>
               Tech Trader
             </Text>
