@@ -25,8 +25,9 @@ import { CgProfile } from "react-icons/cg";
 import { BsList } from "react-icons/bs";
 import { MdLocalShipping, MdLogout } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
-import { GiTechnoHeart } from "react-icons/gi";
-import { useState } from "react";
+// import { GiTechnoHeart } from "react-icons/gi";
+import MyIcon from "../icon/techtrader.png";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 
@@ -72,7 +73,7 @@ const Navbar = () => {
   // Set up state and hooks for the navigation bar
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [isHovering, setIsHovering] = useState(false);
+  // const [isHovering, setIsHovering] = useState(false);
 
   // Get user information and dispatch function from Redux store
   const user = useSelector((state) => state.user);
@@ -101,18 +102,11 @@ const Navbar = () => {
 
         <HStack>
           {/* Navbar brand */}
-          <Link
-            as={ReactLink}
-            to='/'
-            style={{ textDecoration: "none" }}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            <Flex alignItems='center'>
-              <Icon as={GiTechnoHeart} h={6} w={6} color={isHovering ? "cyan.400" : "orange.400"} />
-              <Text fontWeight='extrabold'>Tech Trader</Text>
-            </Flex>
-          </Link>
+
+          <Box height={20} width={20}>
+            <img src={MyIcon} alt='Tech Trader icon' />
+          </Box>
+          <Text fontWeight='extrabold'>Tech Lines</Text>
 
           {/* Navbar links */}
           <HStack as='nav' spacing={4} display={{ base: "none", md: "flex" }}>
