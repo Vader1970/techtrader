@@ -106,7 +106,9 @@ const Navbar = () => {
           <Box height={20} width={20}>
             <img src={MyIcon} alt='Tech Trader icon' />
           </Box>
-          <Text fontWeight='extrabold'>Tech Lines</Text>
+          <Link as={ReactLink} to='/' style={{ textDecoration: "none" }}>
+            <Text fontWeight='extrabold'>Tech Lines</Text>
+          </Link>
 
           {/* Navbar links */}
           <HStack as='nav' spacing={4} display={{ base: "none", md: "flex" }}>
