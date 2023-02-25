@@ -20,6 +20,7 @@ import {
   Tooltip,
   Textarea,
   Input,
+  StackDivider,
 } from "@chakra-ui/react";
 import { MinusIcon, StarIcon, SmallAddIcon } from "@chakra-ui/icons";
 import { BiPackage, BiCheckShield, BiSupport } from "react-icons/bi";
@@ -27,20 +28,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../redux/actions/productActions";
 import { addCartItem } from "../redux/actions/cartActions";
 import { useEffect, useState } from "react";
-import { createProductReview, resetProductError } from "../redux/actions/productActions";
+import {
+  createProductReview,
+  resetProductError,
+  resetQuestionError,
+  createQuestionReview,
+} from "../redux/actions/productActions";
 
 const ProductScreen = () => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(1);
   const [title, setTitle] = useState("");
+  const [questionsComment, setQuestionsComment] = useState(" ");
+  const [questionsTitle, setQuestionsTitle] = useState(" ");
   const [reviewBoxOpen, setReviewBoxOpen] = useState(false);
+  const [questionBoxOpen, setQuestionBoxOpen] = useState(false);
   const [amount, setAmount] = useState(1);
   let { id } = useParams();
   const toast = useToast();
   //redux
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const { loading, error, product, reviewSend } = products;
+  const { loading, error, product, reviewSend, questionSend } = products;
 
   const cartContent = useSelector((state) => state.cart);
   const { cart } = cartContent;
@@ -56,7 +65,13 @@ const ProductScreen = () => {
       dispatch(resetProductError());
       setReviewBoxOpen(false);
     }
-  }, [dispatch, id, cart, reviewSend]);
+
+    if (questionSend) {
+      toast({ description: "Question sent.", status: "success", isClosable: true });
+      dispatch(resetQuestionError());
+      setReviewBoxOpen(false);
+    }
+  }, [dispatch, id, cart, reviewSend, questionSend]);
 
   const changeAmount = (input) => {
     if (input === "plus") {
@@ -71,6 +86,10 @@ const ProductScreen = () => {
 
   const onSubmit = () => {
     dispatch(createProductReview(product._id, userInfo._id, comment, rating, title));
+  };
+
+  const onQuestionSubmit = () => {
+    dispatch(createQuestionReview(product._id, userInfo._id, questionsComment, questionsTitle));
   };
 
   const addItem = () => {
@@ -253,6 +272,51 @@ const ProductScreen = () => {
                 ))}
               </SimpleGrid>
             </Stack>
+            <Stack divider={<StackDivider />} spacing='4'></Stack>
+            {userInfo && (
+              <>
+                <Button my='20px' w='140px' colorScheme='orange' onClick={() => setQuestionBoxOpen(!questionBoxOpen)}>
+                  Ask a question
+                </Button>
+                {questionBoxOpen && (
+                  <Stack mb='20px'>
+                    <Input
+                      onChange={(e) => {
+                        setQuestionsTitle(e.target.value);
+                      }}
+                      placeholder='Question title (optional)'
+                    />
+                    <Textarea
+                      onChange={(e) => {
+                        setQuestionsComment(e.target.value);
+                      }}
+                      placeholder='Ask question here...'
+                    />
+                    <Button w='140px' colorScheme='orange' onClick={() => onQuestionSubmit()}>
+                      Send question
+                    </Button>
+                  </Stack>
+                )}
+                <Stack>
+                  <Text fontSize='xl' fontWeight='bold'>
+                    Questions
+                  </Text>
+                  <SimpleGrid minChildWidth='300px' spacingX='40px' spacingY='20px'>
+                    {product.questions.map((question) => (
+                      <Box key={question._id}>
+                        <Flex spacing='2px' alignItems='center'>
+                          <Text fontWeight='semibold'>{question.questionsTitle && question.questionsTitle}</Text>
+                        </Flex>
+                        <Box py='12px'>{question.questionsComment}</Box>
+                        <Text fontSize='sm' color='gray.400'>
+                          by {question.questionsName}, {new Date(question.createdAt).toDateString()}
+                        </Text>
+                      </Box>
+                    ))}
+                  </SimpleGrid>
+                </Stack>
+              </>
+            )}
           </Box>
         )
       )}

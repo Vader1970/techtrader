@@ -56,8 +56,29 @@ const createProductReview = asyncHandler(async (req, res) => {
   }
 });
 
+const createQuestionsReview = asyncHandler(async (req, res) => {
+  const { questionsComment, questionsTitle, userId } = req.body;
+
+  const product = await Product.findById(req.params.id);
+
+  const user = await User.findById(userId);
+
+  const question = {
+    questionsName: user.name,
+    questionsComment,
+    questionsTitle,
+    user: user._id,
+  };
+
+  product.questions.push(question);
+
+  await product.save();
+  res.status(201).json({ message: "Question has been saved" });
+});
+
 productRoutes.route("/").get(getProducts);
 productRoutes.route("/:id").get(getProduct);
 productRoutes.route("/reviews/:id").post(protectRoute, createProductReview);
+productRoutes.route("/questions/:id").post(protectRoute, createQuestionsReview);
 
 export default productRoutes;
