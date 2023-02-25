@@ -20,7 +20,7 @@ const LandingScreen = () => (
     <Stack direction={{ base: "column-reverse", lg: "row" }} spacing={{ base: "0", lg: "20" }}>
       <Box
         width={{ lg: "sm" }}
-        transform={{ base: "translateY(-50%)", lg: "none" }}
+        transform={{ base: "translateY(-30%)", lg: "none" }}
         bg={{ base: mode("orange.50", "gray.700"), lg: "transparent" }}
         mx={{ base: "6", md: "8", lg: "0" }}
         px={{ base: "6", md: "8", lg: "0" }}
@@ -30,7 +30,7 @@ const LandingScreen = () => (
           <Stack spacing={{ base: "2", lg: "4" }}>
             <Flex alignItems='center'>
               {/* <Icon as={GiTechnoHeart} h={12} w={12} color={mode("orange.500", "orange.300")} /> */}
-              <Text fontSize='5xl' fontWeight='bold'>
+              <Text fontSize='4xl' fontWeight='bold'>
                 TECH TRADER
               </Text>
             </Flex>
