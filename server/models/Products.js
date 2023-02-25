@@ -11,6 +11,16 @@ const reviewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const questionsSchema = new mongoose.Schema(
+  {
+    questionsName: { type: String, required: true },
+    questionsComment: { type: String, required: true },
+    questionsTitle: { type: String, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
+  },
+  { timestamps: true }
+);
+
 const productSchema = new mongoose.Schema(
   {
     name: {
@@ -57,6 +67,7 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    questions: [questionsSchema],
   },
   { timestamps: true }
 );
