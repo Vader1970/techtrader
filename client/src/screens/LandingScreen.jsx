@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link as ReactLink } from "react-router-dom";
-// import { GiTechnoHeart } from "react-icons/gi";
 
 const LandingScreen = () => (
   <Box maxW='8xl' mx='auto' px={{ base: "0", lg: "12" }} py={{ base: "0", lg: "12" }} minH='6xl'>
