@@ -20,7 +20,7 @@ import {
   Tooltip,
   Textarea,
   Input,
-  StackDivider,
+  Divider,
 } from "@chakra-ui/react";
 import { MinusIcon, StarIcon, SmallAddIcon } from "@chakra-ui/icons";
 import { BiPackage, BiCheckShield, BiSupport } from "react-icons/bi";
@@ -272,7 +272,7 @@ const ProductScreen = () => {
                 ))}
               </SimpleGrid>
             </Stack>
-            <Stack divider={<StackDivider />} spacing='4'></Stack>
+            <Divider mt='40px' mb='20px' />
             {userInfo && (
               <>
                 <Button my='20px' w='140px' colorScheme='orange' onClick={() => setQuestionBoxOpen(!questionBoxOpen)}>

@@ -1,21 +1,12 @@
 import { Box, Stack, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-
-import OrdersTab from "../components/OrdersTab";
+import ProductTab from "../components/ProductsTab";
 
 const ListingsScreen = () => {
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
   const location = useLocation();
-  const dispatch = useDispatch();
-
-  //   useEffect(() => {
-  //     if (userInfo) {
-  //       dispatch(getUserListings());
-  //     }
-  //   }, [userInfo, dispatch]);
 
   return userInfo ? (
     <Box p='20px' minH='100vh'>
@@ -26,16 +17,11 @@ const ListingsScreen = () => {
           </Heading>
           <Tabs size='md' variant='enclosed'>
             <TabList>
-              {/* <Tab>Products</Tab>
-              <Tab>Reviews</Tab> */}
-              <Tab>Orders</Tab>
+              <Tab>Products</Tab>
             </TabList>
             <TabPanels>
-              <TabPanel>{/* <ProductTab /> */}</TabPanel>
-            </TabPanels>
-            <TabPanels>
               <TabPanel>
-                <OrdersTab />
+                <ProductTab />
               </TabPanel>
             </TabPanels>
           </Tabs>
