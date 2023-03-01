@@ -91,10 +91,10 @@ const Footer = () => (
 
       {/* This stack component includes the company copyright text and social media links */}
       <Stack
+        bg={mode("white", "blue.600")}
         borderTop='1px'
         borderColor={mode("white", "blue.100")}
         pt='4'
-        bg={mode("blue.600", "blue.900")}
         pr='12'
         pl='12'
         pb='4'

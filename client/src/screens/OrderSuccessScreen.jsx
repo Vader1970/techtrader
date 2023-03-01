@@ -31,6 +31,7 @@ const OrderSuccessScreen = () => {
       minH='100vh'
     >
       <Alert
+        bg={mode("white", "blue.900")}
         pt='4'
         status='success'
         variant='subtle'
@@ -46,13 +47,13 @@ const OrderSuccessScreen = () => {
         </AlertTitle>
 
         <Stack mt='20px' minW='200px'>
-          <Button colorScheme='teal' variant='outline' as={ReactLink} to='/your-orders'>
+          <Button colorScheme='blue' variant='outline' as={ReactLink} to='/your-orders'>
             Your Order
           </Button>
-          <Button colorScheme='teal' variant='outline' as={ReactLink} to='/products'>
+          <Button colorScheme='blue' variant='outline' as={ReactLink} to='/products'>
             Products
           </Button>
-          <Button colorScheme='teal' variant='outline' onClick={logoutHandler}>
+          <Button colorScheme='blue' variant='outline' onClick={logoutHandler}>
             Logout
           </Button>
         </Stack>

@@ -131,7 +131,14 @@ const ProductScreen = () => {
                   </Badge>
                 )}
                 {product.stock === 0 && (
-                  <Badge fontFamily='roboto' rounded='full' w='70px' fontSize='0.8em' colorScheme='red'>
+                  <Badge
+                    fontFamily='roboto'
+                    rounded='full'
+                    w='70px'
+                    fontSize='0.8em'
+                    colorScheme='red'
+                    alignSelf='center'
+                  >
                     Sold out
                   </Badge>
                 )}
@@ -156,7 +163,7 @@ const ProductScreen = () => {
                   </Box>
                   <Text>{product.description}</Text>
                   <Text fontWeight={"bold"}>Quantity</Text>
-                  <Flex w='170px' p='5px' border='1px' borderColor='gray.200' alignItems='center'>
+                  <Flex w='170px' p='5px' border='1px' borderColor='gray.200'>
                     <Button isDisabled={amount <= 1} onClick={() => changeAmount("minus")}>
                       <MinusIcon />
                     </Button>

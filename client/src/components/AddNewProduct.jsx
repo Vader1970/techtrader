@@ -39,7 +39,7 @@ const AddNewProduct = () => {
     <Wrap spacing='30px' justify='center'>
       <Stack direction={{ base: "column", lg: "row" }} align='center'>
         <Stack my='20px'>
-          <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+          <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
             Image file name
           </Heading>
           <Tooltip label={"Set the name of your image e.g., iPhone.jpg"} fontSize='sm'>
@@ -64,12 +64,12 @@ const AddNewProduct = () => {
           </Tooltip>
         </Stack>
         <Stack>
-          <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+          <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
             Description
           </Heading>
           <Textarea
             value={description}
-            w='270px'
+            w='200px'
             h='325px'
             onChange={(e) => {
               setDescription(e.target.value);
@@ -80,46 +80,46 @@ const AddNewProduct = () => {
         </Stack>
         <Stack>
           <Flex direction='column' gap='2' h='350px'>
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Brand
             </Heading>
             <Input
               size='sm'
-              w='270px'
+              w='200px'
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
               placeholder='Apple or Samsung etc.'
             />
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Name
             </Heading>
             <Input
               size='sm'
-              w='270px'
+              w='200px'
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder='Samsung S30'
             />
 
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Category
             </Heading>
             <Input
               size='sm'
-              w='270px'
+              w='200px'
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               placeholder='Electronics'
             />
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Price
             </Heading>
-            <Input size='sm' w='270px' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='$299.99' />
+            <Input size='sm' w='200px' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='$299.99' />
 
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Stock
             </Heading>
-            <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} />
+            <Input size='sm' w='200px' value={stock} onChange={(e) => setStock(e.target.value)} />
             <Text fontSize='sm'>New Badge shown on product card</Text>
             <FormControl display='flex' alignItems='center'>
               <FormLabel htmlFor='productIsNewFlag' mb='0' fontSize='sm'>
