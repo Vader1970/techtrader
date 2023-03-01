@@ -1,21 +1,16 @@
 import {
-  TableContainer,
   Stack,
   Spinner,
   Alert,
   AlertIcon,
   AlertDescription,
-  Th,
-  Tbody,
-  Tr,
-  Thead,
-  Button,
   ListItem,
   UnorderedList,
-  Table,
-  Td,
   AlertTitle,
   Wrap,
+  useColorModeValue as mode,
+  Heading,
+  Box,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserOrders } from "../redux/actions/userActions";
@@ -37,58 +32,77 @@ const YourOrdersScreen = () => {
 
   return userInfo ? (
     <>
-      {loading ? (
-        <Wrap justify='center' direction='column' align='center' mt='20px' minH='100vh'>
-          <Stack direction='row' spacing={4}>
-            <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='orange.500' size='xl' />
-          </Stack>
-        </Wrap>
-      ) : error ? (
-        <Alert status='error'>
-          <AlertIcon />
-          <AlertTitle>We are sorry!</AlertTitle>
-          <AlertDescription>{error}</AlertDescription>
-        </Alert>
-      ) : (
-        orders && (
-          <TableContainer minHeight='100vh'>
-            <Table variant='striped'>
-              <Thead>
-                <Tr>
-                  <Th>Order Id</Th>
-                  <Th>Order Date</Th>
-                  <Th>Paid Total</Th>
-                  <Th>Items</Th>
-                  <Th>Print Receipt</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {orders.map((order) => (
-                  <Tr key={order._id}>
-                    <Td>{order._id}</Td>
-                    <Td>{new Date(order.createdAt).toDateString()}</Td>
-                    <Td>
-                      ${order.totalPrice} via {order.paymentMethod}
-                    </Td>
-                    <Td>
-                      {order.orderItems.map((item) => (
-                        <UnorderedList key={item._id}>
-                          <ListItem>
-                            {item.qty} x {item.name} (${item.price} ech)
-                          </ListItem>
-                        </UnorderedList>
-                      ))}
-                    </Td>
-                    <Td>
-                      <Button variant='outline'>Receipt</Button>
-                    </Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          </TableContainer>
-        )
-      )}
+      <Wrap bg={mode("white", "blue.900")} spacing='10px' justify='center' minHeight='100vh'>
+        {loading ? (
+          <Wrap justify='center' direction='column' align='center' mt='20px' minH='100vh'>
+            <Stack direction='row'>
+              <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='orange.500' size='xl' />
+            </Stack>
+          </Wrap>
+        ) : error ? (
+          <Alert status='error'>
+            <AlertIcon />
+            <AlertTitle>We are sorry!</AlertTitle>
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        ) : (
+          orders && (
+            <Stack>
+              <Wrap>
+                <Stack>
+                  {orders.map((order) => (
+                    <Stack key={order._id}>
+                      <Stack
+                        direction={{ base: "column", lg: "row" }}
+                        spacing='20px'
+                        justify='center'
+                        border='1px'
+                        borderColor='gray.600'
+                        my='20px'
+                        p='20px'
+                        w='100vw'
+                      >
+                        <Box p='10px'>
+                          <Heading fontSize='m' mb='10px' fontWeight='extrabold' w='200px'>
+                            Oder ID
+                          </Heading>
+                          {order._id}
+                        </Box>
+
+                        <Box p='10px'>
+                          <Heading fontSize='m' mb='10px' fontWeight='extrabold' w='100px'>
+                            Order Date
+                          </Heading>
+                          {new Date(order.createdAt).toDateString()}
+                        </Box>
+
+                        <Box p='10px'>
+                          <Heading fontSize='m' mb='10px' fontWeight='extrabold' w='100px'>
+                            Paid Total
+                          </Heading>
+                          ${order.totalPrice} via {order.paymentMethod}
+                        </Box>
+                        <Box p='10px'>
+                          <Heading fontSize='m' mb='10px' fontWeight='extrabold'>
+                            Items
+                          </Heading>
+                          {order.orderItems.map((item) => (
+                            <UnorderedList key={item._id}>
+                              <ListItem maxW='380px'>
+                                {item.qty} x {item.name} (${item.price} ech)
+                              </ListItem>
+                            </UnorderedList>
+                          ))}
+                        </Box>
+                      </Stack>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Wrap>
+            </Stack>
+          )
+        )}
+      </Wrap>
     </>
   ) : (
     <Navigate to='/login' replace={true} state={{ from: location }} />

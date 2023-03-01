@@ -56,14 +56,7 @@ const links = [
 
 // Define a NavLink component that renders a navigation link using React Router DOM
 const NavLink = ({ path, children }) => (
-  <Link
-    as={ReactLink}
-    to={path}
-    px={2}
-    py={2}
-    rounded='md'
-    _hover={{ textDecoration: "none", bg: mode("gray.200", "gray.700") }}
-  >
+  <Link as={ReactLink} to={path} px={2} py={2} rounded='md' _hover={{ bg: "blue.300" }}>
     {children}
   </Link>
 );

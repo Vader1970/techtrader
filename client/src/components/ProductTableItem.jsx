@@ -1,6 +1,4 @@
 import {
-  Tr,
-  Td,
   Button,
   Image,
   VStack,
@@ -13,7 +11,6 @@ import {
   Switch,
   Badge,
   useDisclosure,
-  SimpleGrid,
   Heading,
   Stack,
   Wrap,
@@ -48,23 +45,23 @@ const ProductTableItem = ({ product }) => {
 
   return (
     <>
-      <Wrap spacing='30px' justify='center'>
+      <Wrap spacing='30px' justify='center' border='1px' borderColor='gray.600' my='20px'>
         <Stack direction={{ base: "column", lg: "row" }} align='center'>
           <Stack my='20px'>
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
               IMAGE
             </Heading>
-            <Input size='sm' w='270px' value={image} onChange={(e) => setImage(e.target.value)} />
+            <Input size='sm' w='250px' value={image} onChange={(e) => setImage(e.target.value)} />
             <Tooltip label={product.image} fontSize='sm'>
-              <Image src={product.image} boxSize='270px' h='285px' fit='contain' />
+              <Image src={product.image} boxSize='250px' h='285px' fit='contain' />
             </Tooltip>
           </Stack>
           <Stack>
-            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
               DESCRIPTION
             </Heading>
             <Textarea
-              w='270px'
+              w='250px'
               h='325px'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -73,23 +70,23 @@ const ProductTableItem = ({ product }) => {
           </Stack>
           <Stack>
             <Flex direction='column' gap='2' h='350px'>
-              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 BRAND
               </Heading>
-              <Input size='sm' w='270px' value={brand} onChange={(e) => setBrand(e.target.value)} />
-              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              <Input size='sm' w='250px' value={brand} onChange={(e) => setBrand(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 NAME
               </Heading>
-              <Input size='sm' w='270px' value={name} onChange={(e) => setName(e.target.value)} />
-              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              <Input size='sm' w='250px' value={name} onChange={(e) => setName(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 CATEGORY
               </Heading>
-              <Input size='sm' w='270px' value={category} onChange={(e) => setCategory(e.target.value)} />
-              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              <Input size='sm' w='250px' value={category} onChange={(e) => setCategory(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 PRICE
               </Heading>
-              <Input size='sm' w='270px' value={price} onChange={(e) => setPrice(e.target.value)} />
-              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              <Input size='sm' w='250px' value={price} onChange={(e) => setPrice(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 STOCK
               </Heading>
               <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} />
@@ -111,8 +108,8 @@ const ProductTableItem = ({ product }) => {
           </Stack>
 
           <Stack>
-            <VStack>
-              <Button colorScheme='red' my='20px' w='160px' variant='outline' onClick={openDeleteConfirmBox}>
+            <VStack mb='20px'>
+              <Button mb='20px' colorScheme='red' my='20px' w='160px' variant='outline' onClick={openDeleteConfirmBox}>
                 <DeleteIcon mr='5px' />
                 Remove Product
               </Button>

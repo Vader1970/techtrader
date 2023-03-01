@@ -1,9 +1,6 @@
 import {
   Box,
-  Th,
-  Tr,
   Table,
-  Thead,
   Tbody,
   Alert,
   Stack,
@@ -67,9 +64,7 @@ const ProductsTab = () => {
                 <AccordionButton>
                   <Box flex='1' textAlign='left'>
                     <Box>
-                      <Text mr='8px' fontWeight='bold'>
-                        Add a new listing
-                      </Text>
+                      <Text fontWeight='bold'>Add a new listing</Text>
                     </Box>
                   </Box>
                 </AccordionButton>
@@ -84,16 +79,6 @@ const ProductsTab = () => {
             </AccordionItem>
           </Accordion>
           <Table variant='simple' size='lg'>
-            {/* <Thead>
-              <Tr>
-                <Th>Image</Th>
-                <Th>Description</Th>
-                <Th>Brand & Name</Th>
-                <Th>Category & Price</Th>
-                <Th>Stock & new Badge</Th>
-              </Tr>
-            </Thead> */}
-
             <Tbody>
               {products.length > 0 &&
                 products.map((product) => <ProductTableItem key={product._id} product={product} />)}
