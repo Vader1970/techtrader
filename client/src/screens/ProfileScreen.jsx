@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import TextField from "../components/TextField";
 import PasswordTextField from "../components/PasswordTextField";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,6 +59,7 @@ const ProfileScreen = () => {
     >
       {(formik) => (
         <Box
+          fontFamily='roboto'
           minH='100vh'
           maxW={{ base: "3xl", lg: "7xl" }}
           mx='auto'

@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import TextField from "../components/TextField";
 import PasswordTextField from "../components/PasswordTextField";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -60,7 +60,14 @@ const RegistrationScreen = () => {
       }}
     >
       {(formik) => (
-        <Container maxW='lg' py={{ base: "12", md: "24" }} px={{ base: "0", md: "8" }} minH='4xl'>
+        <Container
+          bg={mode("white", "blue.900")}
+          fontFamily='roboto'
+          maxW='lg'
+          py={{ base: "12", md: "24" }}
+          px={{ base: "0", md: "8" }}
+          minH='4xl'
+        >
           <Stack spacing='8'>
             <Stack spacing='6'>
               <Stack spacing={{ base: "2", md: "3" }} textAlign='center'>
