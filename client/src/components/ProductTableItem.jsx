@@ -13,6 +13,10 @@ import {
   Switch,
   Badge,
   useDisclosure,
+  SimpleGrid,
+  Heading,
+  Stack,
+  Wrap,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { MdOutlineDataSaverOn } from "react-icons/md";
@@ -44,62 +48,82 @@ const ProductTableItem = ({ product }) => {
 
   return (
     <>
-      <Tr>
-        <Td>
-          <Input size='sm' value={image} onChange={(e) => setImage(e.target.value)} />
-          <Tooltip label={product.image} fontSize='sm'>
-            <Image src={product.image} boxSize='100px' fit='contain' />
-          </Tooltip>
-        </Td>
-        <Td>
-          <Textarea
-            w='270px'
-            h='120px'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            size='sm'
-          />
-        </Td>
-        <Td>
-          <Flex direction='column' gap='2'>
-            <Input size='sm' value={brand} onChange={(e) => setBrand(e.target.value)} />
-            <Input size='sm' value={name} onChange={(e) => setName(e.target.value)} />
-          </Flex>
-        </Td>
-        <Td>
-          <Flex direction='column' gap='2'>
-            <Input size='sm' value={category} onChange={(e) => setCategory(e.target.value)} />
-            <Input size='sm' value={price} onChange={(e) => setPrice(e.target.value)} />
-          </Flex>
-        </Td>
-        <Td>
-          <Flex direction='column' gap='2'>
-            <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} />
-            <FormControl display='flex' alignItems='center'>
-              <FormLabel htmlFor='productIsNewFlag' mb='0' fontSize='sm'>
-                Enable
-                <Badge rounded='full' px='1' mx='1' fontSize='0.8em' colorScheme='green'>
-                  New
-                </Badge>
-                badge?
-              </FormLabel>
-              <Switch id='productIsNewFlag' onChange={() => setProductIsNew(!productIsNew)} isChecked={productIsNew} />
-            </FormControl>
-          </Flex>
-        </Td>
-        <Td>
-          <VStack>
-            <Button colorScheme='red' w='160px' variant='outline' onClick={openDeleteConfirmBox}>
-              <DeleteIcon mr='5px' />
-              Remove Product
-            </Button>
-            <Button colorScheme='orange' w='160px' variant='outline' onClick={onSaveProduct}>
-              <MdOutlineDataSaverOn style={{ marginRight: "5px" }} />
-              Save Changes
-            </Button>
-          </VStack>
-        </Td>
-      </Tr>
+      <Wrap spacing='30px' justify='center'>
+        <Stack direction={{ base: "column", lg: "row" }} align='center'>
+          <Stack my='20px'>
+            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              IMAGE
+            </Heading>
+            <Input size='sm' w='270px' value={image} onChange={(e) => setImage(e.target.value)} />
+            <Tooltip label={product.image} fontSize='sm'>
+              <Image src={product.image} boxSize='270px' h='285px' fit='contain' />
+            </Tooltip>
+          </Stack>
+          <Stack>
+            <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+              DESCRIPTION
+            </Heading>
+            <Textarea
+              w='270px'
+              h='325px'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              size='sm'
+            />
+          </Stack>
+          <Stack>
+            <Flex direction='column' gap='2' h='350px'>
+              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+                BRAND
+              </Heading>
+              <Input size='sm' w='270px' value={brand} onChange={(e) => setBrand(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+                NAME
+              </Heading>
+              <Input size='sm' w='270px' value={name} onChange={(e) => setName(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+                CATEGORY
+              </Heading>
+              <Input size='sm' w='270px' value={category} onChange={(e) => setCategory(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+                PRICE
+              </Heading>
+              <Input size='sm' w='270px' value={price} onChange={(e) => setPrice(e.target.value)} />
+              <Heading fontSize='sm' fontWeight='extrabold' w='270px'>
+                STOCK
+              </Heading>
+              <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} />
+              <FormControl display='flex' alignItems='center'>
+                <FormLabel htmlFor='productIsNewFlag' mb='0' fontSize='sm'>
+                  Enable
+                  <Badge rounded='full' px='1' mx='1' fontSize='0.8em' colorScheme='green'>
+                    New
+                  </Badge>
+                  badge?
+                </FormLabel>
+                <Switch
+                  id='productIsNewFlag'
+                  onChange={() => setProductIsNew(!productIsNew)}
+                  isChecked={productIsNew}
+                />
+              </FormControl>
+            </Flex>
+          </Stack>
+
+          <Stack>
+            <VStack>
+              <Button colorScheme='red' my='20px' w='160px' variant='outline' onClick={openDeleteConfirmBox}>
+                <DeleteIcon mr='5px' />
+                Remove Product
+              </Button>
+              <Button colorScheme='orange' w='160px' variant='outline' onClick={onSaveProduct}>
+                <MdOutlineDataSaverOn style={{ marginRight: "5px" }} />
+                Save Changes
+              </Button>
+            </VStack>
+          </Stack>
+        </Stack>
+      </Wrap>
       <ConfirmRemovalAlert
         isOpen={isOpen}
         onOpen={onOpen}

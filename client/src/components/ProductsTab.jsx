@@ -65,7 +65,7 @@ const ProductsTab = () => {
             <AccordionItem>
               <h2>
                 <AccordionButton>
-                  <Box flex='1' textAlign='right'>
+                  <Box flex='1' textAlign='left'>
                     <Box>
                       <Text mr='8px' fontWeight='bold'>
                         Add a new listing
@@ -84,7 +84,7 @@ const ProductsTab = () => {
             </AccordionItem>
           </Accordion>
           <Table variant='simple' size='lg'>
-            <Thead>
+            {/* <Thead>
               <Tr>
                 <Th>Image</Th>
                 <Th>Description</Th>
@@ -92,7 +92,7 @@ const ProductsTab = () => {
                 <Th>Category & Price</Th>
                 <Th>Stock & new Badge</Th>
               </Tr>
-            </Thead>
+            </Thead> */}
 
             <Tbody>
               {products.length > 0 &&
