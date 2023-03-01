@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Flex } from "@chakra-ui/react";
+import { Box, Heading, Stack, Flex,  useColorModeValue as mode, } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 import CheckoutOrderSummary from "../components/CheckoutOrderSummary";
@@ -11,6 +11,7 @@ const CheckoutScreen = () => {
 
   return userInfo ? (
     <Box
+      bg={mode('white', 'blue.900')}
       minH='100vh'
       maxW={{ base: "3xl", lg: "7xl" }}
       mx='auto'

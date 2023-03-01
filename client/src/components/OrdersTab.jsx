@@ -69,7 +69,7 @@ const OrdersTab = () => {
   };
 
   return (
-    <Box>
+    <Box fontFamily='roboto'>
       {error && (
         <Alert status='error'>
           <AlertIcon />

@@ -9,7 +9,7 @@ import {
   Stack,
   Text,
   useBreakpointValue,
-  useColorModeValue,
+  useColorModeValue as mode,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -64,8 +64,8 @@ const LoginScreen = () => {
       }}
     >
       {(formik) => (
-        <Container maxW='lg' py={{ base: "12", md: "24" }} px={{ base: "0", md: "8" }} minH='4xl'>
-          <Stack spacing='8'>
+        <Container bg={mode("white", "blue.900")} maxW='lg' py={{ base: "12", md: "24" }} px={{ base: "0", md: "8" }} minH='4xl'>
+          <Stack fontFamily='roboto' spacing='8'>
             <Stack spacing='6'>
               <Stack spacing={{ base: "2", md: "3" }} textAlign='center'>
                 <Heading size={headingBR}>Log in to your account</Heading>

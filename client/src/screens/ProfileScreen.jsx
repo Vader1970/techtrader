@@ -61,6 +61,7 @@ const ProfileScreen = () => {
     >
       {(formik) => (
         <Box
+          fontFamily='roboto'
           minH='100vh'
           maxW={{ base: "3xl", lg: "7xl" }}
           mx='auto'

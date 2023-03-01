@@ -12,6 +12,7 @@ import {
   AlertTitle,
   Flex,
   Badge,
+  useColorModeValue as mode,
   Heading,
   HStack,
   Button,
@@ -79,7 +80,7 @@ const ProductScreen = () => {
   };
 
   return (
-    <Wrap spacing='30px' justify='center' minHeight='100vh'>
+    <Wrap bg={mode("white", "blue.900")} spacing='30px' justify='center' minHeight='100vh'>
       {loading ? (
         <Stack direction='row' spacing={4}>
           <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='orange.500' size='xl' />
@@ -92,13 +93,13 @@ const ProductScreen = () => {
         </Alert>
       ) : (
         product && (
-          <Box
+          <Box 
             maxW={{ base: "3xl", lg: "5xl" }}
             mx='auto'
             px={{ base: "4", md: "8", lg: "12" }}
             py={{ base: "6", md: "8", lg: "12" }}
           >
-            <Stack direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
+            <Stack  direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
               <Stack
                 pr={{ base: "0", md: "12" }}
                 spacing={{ base: "8", md: "4" }}
@@ -111,14 +112,14 @@ const ProductScreen = () => {
                   </Badge>
                 )}
                 {product.stock === 0 && (
-                  <Badge rounded='full' w='70px' fontSize='0.8em' colorScheme='red'>
+                  <Badge fontFamily='roboto' rounded='full' w='70px' fontSize='0.8em' colorScheme='red'>
                     Sold out
                   </Badge>
                 )}
-                <Heading fontSize='2xl' fontWeight='extrabold'>
+                <Heading fontFamily='archivo black' fontSize='2xl' fontWeight='extrabold'>
                   {product.name}
                 </Heading>
-                <Stack spacing='5'>
+                <Stack fontFamily='roboto' spacing='5'>
                   <Box>
                     <Text fontSize='xl'>${product.price}</Text>
                     <Flex>
@@ -171,7 +172,7 @@ const ProductScreen = () => {
                   </Stack>
                 </Stack>
               </Stack>
-              <Flex direction='column' align='center' flex='1' _dark={{ bg: "gray.900" }}>
+              <Flex direction='column' align='center' flex='1' _dark={{ bg: "blue.900" }}>
                 <Image mb='30px' src={product.image} alt={product.name} />
               </Flex>
             </Stack>

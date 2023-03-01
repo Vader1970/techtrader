@@ -1,4 +1,4 @@
-import { Button, Alert, AlertTitle, AlertIcon, Wrap, useToast, Stack } from "@chakra-ui/react";
+import { Button, Alert, AlertTitle, AlertIcon, Wrap, useToast, Stack, useColorModeValue as mode, } from "@chakra-ui/react";
 
 import { Link as ReactLink, useNavigate } from "react-router-dom";
 import { logout } from "../redux/actions/userActions";
@@ -13,9 +13,11 @@ const OrderSuccessScreen = () => {
     toast({ description: "You have been logged out.", status: "success", isClosable: true });
     navigate("/products");
   };
+  
   return (
-    <Wrap justify='center' direction='column' align='center' mt='20px' minH='100vh'>
+    <Wrap  bg={mode("white", "blue.900")} justify='center' fontFamily='roboto' direction='column' align='center' minH='100vh'>
       <Alert
+       pt='4'
         status='success'
         variant='subtle'
         flexDirection='column'

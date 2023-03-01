@@ -94,7 +94,7 @@ const ProductCard = ({ product }) => {
     <Stack
       p='2'
       spacing='3px'
-      bg={mode("white", "gray.800")}
+      bg={mode("white", "blue.900")}
       minW='240px'
       h='450px'
       borderWidth='1px'
@@ -142,7 +142,7 @@ const ProductCard = ({ product }) => {
       <Flex justify='space-between'>
         <Box fontSize='2xl' color={mode("gray.800", "white")}>
           {/* This Box component holds the currency symbol and styles it with a smaller font. */}
-          <Box as='span' color={"gray.600"} fontSize='lg'>
+          <Box as='span' color={mode("gray.600", "white")} fontSize='lg'>
             $
           </Box>
 

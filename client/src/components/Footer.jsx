@@ -5,7 +5,6 @@ import {
   Button,
   ButtonGroup,
   Container,
-  Divider,
   IconButton,
   Input,
   Stack,
@@ -14,18 +13,19 @@ import {
   Box,
   Flex,
   Icon,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GiTechnoHeart } from "react-icons/gi";
 import MyIcon from "../icon/techtrader.png";
-
+import MyIcon1 from "../icon/techtrader-white.png";
 // Define Footer component
 const Footer = () => (
   // Render a footer section with a gray background
-  <Box w='100%' bg={mode("gray.100", "gray.900")}>
+  <Box w='100%' bg={mode("gray.100", "blue.600")}  borderTop='1px' borderColor={mode("white", "blue.100")}>
     <Container as='footer' role='contentinfo' maxW='7xl'>
       {/* Render a stack of content with two columns */}
-      <Stack
+      <Stack 
         spacing='8'
         direction={{ base: "column", md: "row" }}
         justify='space-between'
@@ -36,19 +36,20 @@ const Footer = () => (
           <Flex alignItems='center'>
             {/* Render an icon for the app */}
             <Box height={20} width={20}>
-              <img src={MyIcon} alt='Tech Trader icon' />
+              <img src={useColorModeValue(MyIcon, MyIcon1)} alt='Tech Trader icon' />
             </Box>
-            <Text fontSize='2xl' fontWeight='extrabold'>
+            <Text color={mode("blue.700", "white")} fontFamily='archivo black' fontSize='3xl' fontWeight='extrabold'>
               Tech Trader
             </Text>
+            
           </Flex>
-          <Text color='muted'>We love technology.</Text>
+          <Text color={mode("blue.600", "white")}>We love technology.</Text>
         </Stack>
         {/* Render two stacks with links to different pages and a newsletter sign-up form */}
-        <Stack direction={{ base: "column-reverse", md: "column", lg: "row" }} spacing={{ base: "12", md: "8" }}>
+        <Stack fontFamily='roboto' direction={{ base: "column-reverse", md: "column", lg: "row" }} spacing={{ base: "12", md: "8" }}>
           <Stack direction='row' spacing='8'>
             <Stack spacing='4' minW='36' flex='1'>
-              <Text fontSize='sm' fontWeight='semibold' color='subtle'>
+              <Text fontSize='md' fontWeight='bold' color='subtle'>
                 Product
               </Text>
               <Stack spacing='3' shouldWrapChildren>
@@ -57,7 +58,7 @@ const Footer = () => (
               </Stack>
             </Stack>
             <Stack spacing='4' minW='36' flex='1'>
-              <Text fontSize='sm' fontWeight='semibold' color='subtle'>
+              <Text fontSize='md' fontWeight='semibold' color='subtle'>
                 Legal
               </Text>
               <Stack spacing='3' shouldWrapChildren>
@@ -68,36 +69,34 @@ const Footer = () => (
             </Stack>
           </Stack>
           <Stack spacing='4'>
-            <Text fontSize='sm' fontWeight='semibold' color='subtle'>
+            <Text fontSize='md' fontWeight='semibold' color='subtle'>
               Stay up to date
             </Text>
             <Stack spacing='4' direction={{ base: "column", sm: "row" }} maxW={{ lg: "360px" }}>
               <Input placeholder='Enter your email' type='email' required />
-              <Button variant='primary' type='submit' flexShrink={0}>
+              <Button bg={mode("blue.600", "white")} color={mode("white", "blue.600")} variant='primary' type='submit' flexShrink={0}>
                 Subscribe
               </Button>
             </Stack>
           </Stack>
         </Stack>
       </Stack>
-      {/* Render a divider line */}
-      <Divider />
-
-      {/* This stack component includes the company copyright text and social media links */}
-      <Stack pt='8' pb='12' justify='space-between' direction={{ base: "column-reverse", md: "row" }} align='center'>
+        </Container>
+    {/* This stack component includes the company copyright text and social media links */}
+      <Stack borderTop='1px' borderColor={mode("white", "blue.100")} pt='4' bg={mode("blue.600", "blue.900")} pr='12' pl='12'  pb='4' justify='space-between' direction={{ base: "column-reverse", md: "row" }} align='center'>
         {/* This text component displays the copyright information */}
-        <Text fontSize='sm' color='subtle'>
+        <Text fontSize='sm' color='white'>
           &copy; {new Date().getFullYear()} Tech Trader, Inc. All rights reserved.
         </Text>
 
         {/* This button group contains the social media icons */}
-        <ButtonGroup variant='ghost'>
-          <IconButton as='a' href='#' aria-label='LinkedIn' icon={<FaLinkedin fontSize='1.25rem' />} />
-          <IconButton as='a' href='#' aria-label='GitHub' icon={<FaGithub fontSize='1.25rem' />} />
-          <IconButton as='a' href='#' aria-label='Twitter' icon={<FaTwitter fontSize='1.25rem' />} />
+        <ButtonGroup>
+          <IconButton colorScheme='white' color='white' as='a' href='#' aria-label='LinkedIn' icon={<FaLinkedin fontSize='1.25rem' />} />
+          <IconButton colorScheme='white' color='white' as='a' href='#' aria-label='GitHub' icon={<FaGithub fontSize='1.25rem' />} />
+          <IconButton colorScheme='white' color='white' as='a' href='#' aria-label='Twitter' icon={<FaTwitter fontSize='1.25rem' />} />
+          <IconButton colorScheme='white' color='white' as='a' href='#' aria-label='Instagram' icon={<FaInstagram fontSize='1.25rem' />} />
         </ButtonGroup>
       </Stack>
-    </Container>
   </Box>
 );
 

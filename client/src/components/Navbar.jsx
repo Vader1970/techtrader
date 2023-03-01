@@ -27,6 +27,7 @@ import { MdLocalShipping, MdLogout } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 // import { GiTechnoHeart } from "react-icons/gi";
 import MyIcon from "../icon/techtrader.png";
+import MyIcon1 from "../icon/techtrader-white.png";
 // import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/actions/userActions";
@@ -89,7 +90,7 @@ const Navbar = () => {
 
   // Render the navigation bar using Chakra UI components
   return (
-    <Box bg={mode("gray.100", "gray.900")} px={4}>
+    <Box bg={mode("gray.100", "blue.600")}  borderBottom='1px' borderColor={mode("blue.600", "blue.100")} px={4}>
       {/* Navbar header */}
       <Flex h={16} alignItems='center' justifyContent='space-between'>
         {/* Hamburger icon for mobile view */}
@@ -104,9 +105,9 @@ const Navbar = () => {
           {/* Navbar brand */}
 
           <Box height={20} width={20}>
-            <img src={MyIcon} alt='Tech Trader icon' />
+            <img src={colorMode === "light" ? MyIcon : MyIcon1} alt='Tech Trader icon' />
           </Box>
-          <Text fontWeight='extrabold'>Tech Lines</Text>
+          
 
           {/* Navbar links */}
           <HStack as='nav' spacing={4} display={{ base: "none", md: "flex" }}>
@@ -164,9 +165,9 @@ const Navbar = () => {
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize='sm'
                 fontWeight={600}
-                _hover={{ bg: "orange.400" }}
-                bg='orange.500'
-                color='white'
+                _hover={{ bg: "blue.300" }}
+                bg={mode("blue.600", "white")}
+                color={mode("white", "blue.600")}
               >
                 Sign Up
               </Button>
@@ -189,8 +190,10 @@ const Navbar = () => {
             </NavLink>
           </Stack>
         </Box>
+         
       ) : null}
     </Box>
+    
   );
 };
 
