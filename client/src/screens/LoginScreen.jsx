@@ -1,3 +1,4 @@
+// Import required libraries and components
 import {
   Box,
   Button,
@@ -25,33 +26,49 @@ import PasswordTextField from "../components/PasswordTextField";
 import TextField from "../components/TextField";
 import { login } from "../redux/actions/userActions";
 
-//TODO: redefine password length
+// Define the LoginScreen component
 const LoginScreen = () => {
+  // Declare required variables and hooks
+  // React router hook for navigating between screens
   const navigate = useNavigate();
+  // React router hook for accessing the current location
   const location = useLocation();
+  // Redux hook for dispatching actions
   const dispatch = useDispatch();
+  // Redirect path after successful login
   const redirect = "/products";
+  // Chakra UI hook for displaying toast messages
   const toast = useToast();
 
+  // Select user state from the Redux store
   const user = useSelector((state) => state.user);
   const { loading, error, userInfo } = user;
 
+  // Set breakpoint-dependent values for the heading and box
   const headingBR = useBreakpointValue({ base: "xs", md: "sm" });
   const boxBR = useBreakpointValue({ base: "transparent", md: "bg-surface" });
 
+  // Handle the redirect and toast message after successful login
   useEffect(() => {
+    // If there is user info in the Redux store
     if (userInfo) {
+      // If the user was redirected from another screen
       if (location.state?.from) {
+        // Navigate back to the previous screen
         navigate(location.state.from);
       } else {
+        // Otherwise, navigate to the redirect path
         navigate(redirect);
       }
+      // Display a success toast message
       toast({ description: "Login successful.", status: "success", isClosable: true });
     }
   }, [userInfo, redirect, error, navigate, location.state, toast]);
 
+  // Render the login screen UI using Formik and Chakra UI components
   return (
     <Wrap bg={mode("white", "blue.900")} spacing='30px' justify='center' minHeight='100vh'>
+      {/*Define initial form values and validation schema using Yup */}
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={Yup.object({
@@ -60,11 +77,13 @@ const LoginScreen = () => {
             .min(1, "Password is too short - must contain at least 1 character.")
             .required("Password is required."),
         })}
+        // Handle form submission using the login action from the userActions Redux module
         onSubmit={(values) => {
           dispatch(login(values.email, values.password));
         }}
       >
         {(formik) => (
+          // Render the form using Chakra UI components
           <Container
             bg={mode("white", "blue.900")}
             maxW='lg'

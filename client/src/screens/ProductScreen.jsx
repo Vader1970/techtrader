@@ -1,3 +1,16 @@
+// This is a React component that renders a product page with details of a product. It uses the Chakra-UI library to style the page. Here are the key features of the code:
+
+// It imports several modules from React, Chakra-UI, and other third-party libraries.
+
+// It defines several states using the useState hook to store the user's input for rating, comments, and title.
+
+// It retrieves the id parameter from the URL using the useParams hook.
+
+// It uses the useEffect hook to dispatch an action to get the product details from the server. It also listens for changes in the cart, reviewSend, and questionSend states and displays appropriate notifications.
+
+// It defines several helper functions that handle adding items to the cart, changing the amount, submitting reviews and questions, and checking if the user has already reviewed the product.
+
+// It renders the product details, including the product image, name, price, stock status, and rating. It also renders a form to submit a review or question, and buttons to add the product to the cart or change the amount.
 import { useParams } from "react-router-dom";
 import {
   Box,
@@ -164,11 +177,13 @@ const ProductScreen = () => {
                   <Text>{product.description}</Text>
                   <Text fontWeight={"bold"}>Quantity</Text>
                   <Flex w='170px' p='5px' border='1px' borderColor='gray.200'>
-                    <Button isDisabled={amount <= 1} onClick={() => changeAmount("minus")}>
+                    <Button isDisabled={amount <= 1} onClick={() => changeAmount("minus")} align='center'>
                       <MinusIcon />
                     </Button>
-                    <Text mx='30px'>{amount}</Text>
-                    <Button isDisabled={amount >= product.stock} onClick={() => changeAmount("plus")}>
+                    <Text fontSize='30px' mx='30px' align='center'>
+                      {amount}
+                    </Text>
+                    <Button isDisabled={amount >= product.stock} onClick={() => changeAmount("plus")} align='center'>
                       <SmallAddIcon w='20px' h='25px' />
                     </Button>
                   </Flex>

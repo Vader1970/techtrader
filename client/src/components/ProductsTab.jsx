@@ -1,3 +1,4 @@
+// Importing necessary modules from Chakra-UI and react-redux
 import {
   Box,
   Table,
@@ -19,11 +20,17 @@ import {
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+// Importing redux actions to retrieve and reset products data
 import { getProducts, resetProductError } from "../redux/actions/productActions";
+
+// Importing custom components
 import ProductTableItem from "./ProductTableItem";
 import AddNewProduct from "./AddNewProduct";
 
+// Defining a functional component named ProductsTab
 const ProductsTab = () => {
+  // Initializing necessary hooks
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
@@ -33,6 +40,7 @@ const ProductsTab = () => {
   const { products, productUpdate } = productInfo;
   const toast = useToast();
 
+  // useEffect hook to retrieve products data and reset error message
   useEffect(() => {
     dispatch(getProducts());
     dispatch(resetProductError());
@@ -41,6 +49,7 @@ const ProductsTab = () => {
     }
   }, [dispatch, toast, productUpdate]);
 
+  // Returning the JSX
   return (
     <Box>
       {error && (
