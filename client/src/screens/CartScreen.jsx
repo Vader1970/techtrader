@@ -44,7 +44,7 @@ const CartScreen = () => {
 
   // The component returns JSX that renders different content depending on the state of the cart
   return (
-    <Wrap spacing='30px' justify='center' minHeight='100vh'>
+    <Wrap bg={mode("white", "blue.900")} fontFamily='roboto' spacing='30px' justify='center' minHeight='100vh'>
       {loading ? (
         // If the cart is loading, render a spinner
         <Stack direction='row' spacing={4}>
@@ -99,7 +99,7 @@ const CartScreen = () => {
               {/* Link to continue shopping */}
               <HStack mt='6' fontWeight='semibold'>
                 <p>or</p>
-                <Link as={ReactLink} to='/products' color={mode("orange.500", "orange.200")}>
+                <Link as={ReactLink} to='/products' color={mode("blue.600", "white")}>
                   Continue Shopping
                 </Link>
               </HStack>

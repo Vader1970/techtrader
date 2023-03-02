@@ -12,7 +12,6 @@ const getProducts = async (req, res) => {
 
 const getProduct = async (req, res) => {
   const product = await Product.findById(req.params.id);
-
   if (product) {
     res.json(product);
   } else {
@@ -56,8 +55,93 @@ const createProductReview = asyncHandler(async (req, res) => {
   }
 });
 
+const createQuestionsReview = asyncHandler(async (req, res) => {
+  const { questionsComment, questionsTitle, userId } = req.body;
+
+  const product = await Product.findById(req.params.id);
+
+  const user = await User.findById(userId);
+
+  const question = {
+    questionsName: user.name,
+    questionsComment,
+    questionsTitle,
+    user: user._id,
+  };
+
+  product.questions.push(question);
+
+  await product.save();
+  res.status(201).json({ message: "Question has been saved" });
+});
+
+// Create a product
+const createNewProduct = asyncHandler(async (req, res) => {
+  const { brand, name, category, stock, price, image, productIsNew, description } = req.body;
+
+  const newProduct = await Product.create({
+    brand,
+    name,
+    category,
+    stock,
+    price,
+    image: "/images/" + image,
+    productIsNew,
+    description,
+  });
+  await newProduct.save();
+
+  const products = await Product.find({});
+
+  if (newProduct) {
+    res.json(products);
+  } else {
+    res.status(404);
+    throw new Error("Product could not be uploaded.");
+  }
+});
+
+// delete a product
+const deleteProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findByIdAndDelete(req.params.id);
+
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+});
+// update a product
+const updateProduct = asyncHandler(async (req, res) => {
+  const { brand, name, image, category, stock, price, id, productIsNew, description } = req.body;
+
+  const product = await Product.findById(id);
+
+  if (product) {
+    product.name = name;
+    product.price = price;
+    product.description = description;
+    product.brand = brand;
+    product.image = "/images/" + image;
+    product.category = category;
+    product.stock = stock;
+    product.productIsNew = productIsNew;
+
+    const updatedProduct = await product.save();
+    res.json(updatedProduct);
+  } else {
+    res.status(404);
+    throw new Error("Product not found.");
+  }
+});
+
 productRoutes.route("/").get(getProducts);
 productRoutes.route("/:id").get(getProduct);
 productRoutes.route("/reviews/:id").post(protectRoute, createProductReview);
+productRoutes.route("/questions/:id").post(protectRoute, createQuestionsReview);
+productRoutes.route("/").put(protectRoute, updateProduct);
+productRoutes.route("/:id").delete(protectRoute, deleteProduct);
+productRoutes.route("/").post(protectRoute, createNewProduct);
 
 export default productRoutes;

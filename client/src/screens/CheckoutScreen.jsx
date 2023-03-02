@@ -1,16 +1,26 @@
-import { Box, Heading, Stack, Flex } from "@chakra-ui/react";
+// Import necessary modules from Chakra-UI, React-Redux, and React-Router-DOM
+import { Box, Heading, Stack, Flex, useColorModeValue as mode } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
+
+// Import components required for the Checkout screen
 import CheckoutOrderSummary from "../components/CheckoutOrderSummary";
 import ShippingInformation from "../components/ShippingInformation";
 
+// Define the Checkout screen component
 const CheckoutScreen = () => {
   const user = useSelector((state) => state.user);
+
+  // Retrieve the user data from the Redux store
   const { userInfo } = user;
+
+  // Retrieve the current location using the React-Router-DOM
   const location = useLocation();
 
+  // If user is logged in, render the checkout screen, otherwise redirect to the login screen
   return userInfo ? (
     <Box
+      bg={mode("white", "blue.900")}
       minH='100vh'
       maxW={{ base: "3xl", lg: "7xl" }}
       mx='auto'
@@ -36,4 +46,5 @@ const CheckoutScreen = () => {
   );
 };
 
+// Export the Checkout screen component as the default export
 export default CheckoutScreen;
