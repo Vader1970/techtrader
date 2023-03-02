@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# App Development Summative - Tech Trader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Introduction
 
-## Available Scripts
+Our objective for this formative is to work as a team to build an application that is intuitive to use and displays data from an API in an easily understandable representation. Before implementation, the application will be modeled and prototypes will be tested. The implementation of the project will be managed using agile methodologies. All contributed code will adhere to the team’s best practices. Project dependencies will be managed and the application will be built for production.
 
-In the project directory, you can run:
+Our project proposal should adhere to Yoobee Best Practices, and in particular, it must include:
 
-### `npm start`
+- research, comparison and justification of technical options, such as framework, libraries, plugins and third-party services
+- models of the application using Unified Modelling Language (UML) diagrams
+- usability testing results
+- research to ensure that the API can fulfil the identified use cases (if using an external API)
+- an explanation of the main project dependencies
+- a Javascript Best Practices document for the chosen Javascript framework or library and a Javascript Style Guide
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Other projects requirements include:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- That the application will be developed using an industry-standard Javascript framework or library
+- That Prototypes will be created to test usability and results will be documented
+- Data for the project will be retrieved from an API
+- Project dependencies will be managed by a package manager and the project will be built for production
 
-### `npm test`
+## Project Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To install everything needed for this project you will need to have a stable and up-to-date version of Node JS and NPM installed on your computer or server;
 
-### `npm run build`
+- [x] Clone Project down using clone link.
+- [x] Navigate to the cloned folder
+- [x] Open a new terminal
+- [x] npm install
+- [x] In the main TECHTRADER Folder, create a new file and call it .env
+- [x] In the .env file put your MONGO_URI, PORT = 5000 TOKEN_SECRET = my_secret
+- [x] In the client/src folder create a file called client_id.js
+- [x] In the client_id.js file put your free development PAYPAY credentials
+- [x] cd to the client folder
+- [x] npm install react-scripts
+- [x] cd back to the main TECH TRADER folder
+- [x] npm run app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### _Yoobee Colleges - DWUX Module 3 Summative_
