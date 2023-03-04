@@ -1,41 +1,57 @@
-import { Box, Stack, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, useColorModeValue as mode } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+// Importing required modules from Chakra UI, Redux, and React Router DOM
+import {
+  Box,
+  Stack,
+  Heading,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  useColorModeValue as mode,
+} from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import ProductTab from "../components/ProductsTab";
 
-import OrdersTab from "../components/OrdersTab";
-
+// Defining ListingsScreen functional component
 const ListingsScreen = () => {
+  // Retrieving user information from the Redux store
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
+  // Retrieving current location from React Router DOM
   const location = useLocation();
-  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     if (userInfo) {
-  //       dispatch(getUserListings());
-  //     }
-  //   }, [userInfo, dispatch]);
-
+  // If user information is available, display the listings page, otherwise redirect to login page
   return userInfo ? (
-    <Box bg={mode("white", "blue.900")} p='20px' minH='100vh'>
-      <Stack direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
-        <Stack pr={{ base: 0, md: 14 }} spacing={{ base: 8, md: 10 }} flex='1.5' nb={{ base: 12, md: "none" }}>
-          <Heading fontFamily='archivo black' fontSize='2xl' fontWeight='extrabold'>
+    // Rendering main container with background color
+    <Box bg={mode("white", "blue.900")} minH="100vh">
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        align={{ lg: "flex-start" }}
+      >
+        <Stack
+          p="20px"
+          spacing={{ base: 8, md: 10 }}
+          flex="1.5"
+          nb={{ base: 12, md: "none" }}
+        >
+          <Heading
+            fontFamily="archivo black"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
             Listings
           </Heading>
-          <Tabs size='md' variant='enclosed'>
+          {/* Creating tabs for product listing */}
+          <Tabs size="md" variant="enclosed">
             <TabList>
-              {/* <Tab>Products</Tab>
-              <Tab>Reviews</Tab> */}
-              <Tab color={mode("blue.600", "white")}>Orders</Tab>
+              <Tab color={mode("blue.600", "white")}>Products</Tab>
             </TabList>
             <TabPanels>
-              <TabPanel>{/* <ProductTab /> */}</TabPanel>
-            </TabPanels>
-            <TabPanels>
+              {/* Rendering a tab panel with ProductTab component */}
               <TabPanel>
-                <OrdersTab />
+                <ProductTab />
               </TabPanel>
             </TabPanels>
           </Tabs>
@@ -43,8 +59,10 @@ const ListingsScreen = () => {
       </Stack>
     </Box>
   ) : (
-    <Navigate to='/login' replace={true} state={{ from: location }} />
+    //Redirecting to login page with current location as state data
+    <Navigate to="/login" replace={true} state={{ from: location }} />
   );
 };
 
+// Exporting ListingsScreen component as default
 export default ListingsScreen;

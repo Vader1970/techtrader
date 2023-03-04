@@ -33,7 +33,7 @@ import { addCartItem } from "../redux/actions/cartActions";
 // numberOfReviews - the number of reviews the product has received
 const Rating = ({ rating, numberOfReviews }) => {
   // state to keep track of the size of the star icons
-  const { iconSize, setIconSize } = useState("14px");
+  const { iconSize } = useState("14px");
 
   /* A Flex container to hold the star icons and the number of reviews */
   return (
