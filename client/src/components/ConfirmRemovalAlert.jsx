@@ -31,7 +31,7 @@ const ConfirmRemovalAlert = ({ isOpen, onClose, cancelRef, itemToDelete, deleteA
           </AlertDialogHeader>
 
           {/* Render a warning message to confirm the action. */}
-          <AlertDialogBody>Are you sure? You can't undo this actoin afterwards. </AlertDialogBody>
+          <AlertDialogBody>Are you sure? You can't undo this action afterwards. </AlertDialogBody>
           <AlertDialogFooter>
             {/* Render a cancel button to close the dialog. */}
             <Button ref={cancelRef} onClick={onClose}>
