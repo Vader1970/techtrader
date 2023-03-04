@@ -124,7 +124,6 @@ const Footer = () => (
       <Text fontSize="sm" color="white">
         &copy; {new Date().getFullYear()} Tech Trader, Inc. All rights reserved.
       </Text>
-
       {/* This button group contains the social media icons */}
       <ButtonGroup>
         <IconButton
