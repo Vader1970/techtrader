@@ -19,28 +19,30 @@ const CheckoutScreen = () => {
 
   // If user is logged in, render the checkout screen, otherwise redirect to the login screen
   return userInfo ? (
-    <Box
-      bg={mode("white", "blue.900")}
-      minH='100vh'
-      maxW={{ base: "3xl", lg: "7xl" }}
-      mx='auto'
-      px={{ base: "4", md: "8", lg: "12" }}
-      py={{ base: "6", md: "8", lg: "12" }}
-    >
-      <Stack direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
-        <Stack spacing={{ base: "8", md: "10" }} flex='1.5' mb={{ base: "12", md: "none" }}>
-          <Heading fontSize='2xl' fontWeight='extrabold'>
-            Shipping Information
-          </Heading>
-          <Stack spacing='6'>
-            <ShippingInformation />
+    <Stack bg={mode("white", "blue.900")}>
+      <Box
+        bg={mode("white", "blue.900")}
+        minH='100vh'
+        maxW={{ base: "3xl", lg: "7xl" }}
+        mx='auto'
+        px={{ base: "4", md: "8", lg: "12" }}
+        py={{ base: "6", md: "8", lg: "12" }}
+      >
+        <Stack direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
+          <Stack spacing={{ base: "8", md: "10" }} flex='1.5' mb={{ base: "12", md: "none" }}>
+            <Heading fontSize='2xl' fontWeight='extrabold'>
+              Shipping Information
+            </Heading>
+            <Stack spacing='6'>
+              <ShippingInformation />
+            </Stack>
           </Stack>
+          <Flex direction='column' align='center' flex='1'>
+            <CheckoutOrderSummary />
+          </Flex>
         </Stack>
-        <Flex direction='column' align='center' flex='1'>
-          <CheckoutOrderSummary />
-        </Flex>
-      </Stack>
-    </Box>
+      </Box>
+    </Stack>
   ) : (
     <Navigate to='/login' replace={true} state={{ from: location }} />
   );
