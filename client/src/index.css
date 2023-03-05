@@ -1,7 +1,7 @@
 html,
 body {
   margin: 0;
-  font-family: "archivo black";
+  font-family: "Archivo Black", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
