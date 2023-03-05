@@ -25,14 +25,26 @@ const ListingsScreen = () => {
   // If user information is available, display the listings page, otherwise redirect to login page
   return userInfo ? (
     // Rendering main container with background color
-    <Box bg={mode("white", "blue.900")} minH='100vh'>
-      <Stack direction={{ base: "column", lg: "row" }} align={{ lg: "flex-start" }}>
-        <Stack p='20px' spacing={{ base: 8, md: 10 }} flex='1.5' nb={{ base: 12, md: "none" }}>
-          <Heading fontFamily='archivo black' fontSize='2xl' fontWeight='extrabold'>
+    <Box bg={mode("white", "blue.900")} minH="100vh">
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        align={{ lg: "flex-start" }}
+      >
+        <Stack
+          p="20px"
+          spacing={{ base: 8, md: 10 }}
+          flex="1.5"
+          nb={{ base: 12, md: "none" }}
+        >
+          <Heading
+            fontFamily="archivo black"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
             Listings
           </Heading>
           {/* Creating tabs for product listing */}
-          <Tabs size='md' variant='enclosed'>
+          <Tabs size="md" variant="enclosed">
             <TabList>
               <Tab color={mode("blue.600", "white")}>Products</Tab>
             </TabList>
@@ -48,7 +60,7 @@ const ListingsScreen = () => {
     </Box>
   ) : (
     //Redirecting to login page with current location as state data
-    <Navigate to='/login' replace={true} state={{ from: location }} />
+    <Navigate to="/login" replace={true} state={{ from: location }} />
   );
 };
 

@@ -60,14 +60,23 @@ const RegistrationScreen = () => {
       navigate(redirect);
 
       // show a success toast message
-      toast({ description: "Account created. Welcome aboard.", status: "success", isClosable: true });
+      toast({
+        description: "Account created. Welcome aboard.",
+        status: "success",
+        isClosable: true,
+      });
     }
     // dependencies for useEffect
   }, [userInfo, redirect, error, navigate, toast]);
 
   // Wrapping the form in a responsive container with a background color
   return (
-    <Wrap bg={mode("white", "blue.900")} spacing='30px' justify='center' minHeight='100vh'>
+    <Wrap
+      bg={mode("white", "blue.900")}
+      spacing="30px"
+      justify="center"
+      minHeight="100vh"
+    >
       {/* using Formik library for form management and validation */}
       <Formik
         initialValues={{ email: "", password: "", name: "" }}
@@ -76,14 +85,22 @@ const RegistrationScreen = () => {
           // name field is required
           name: Yup.string().required("An name is required."),
           // email field is required and should be in the proper format
-          email: Yup.string().email("Invalid email.").required("An email address is required."),
+          email: Yup.string()
+            .email("Invalid email.")
+            .required("An email address is required."),
           // password field should contain at least one character
           password: Yup.string()
-            .min(1, "Password is too short - must contain at least 1 character.")
+            .min(
+              1,
+              "Password is too short - must contain at least 1 character."
+            )
             .required("Password is required."),
           // confirm password field should match password field
           confirmPassword: Yup.string()
-            .min(1, "Password is too short - must contain at least 1 character.")
+            .min(
+              1,
+              "Password is too short - must contain at least 1 character."
+            )
             .required("Password is required.")
             .oneOf([Yup.ref("password"), null], "Passwords must match."),
         })}
@@ -96,19 +113,24 @@ const RegistrationScreen = () => {
         {(formik) => (
           <Container
             bg={mode("white", "blue.900")}
-            fontFamily='roboto'
-            maxW='lg'
+            fontFamily="roboto"
+            maxW="lg"
             py={{ base: "12", md: "24" }}
             px={{ base: "0", md: "8" }}
-            minH='4xl'
+            minH="4xl"
           >
-            <Stack spacing='8'>
-              <Stack spacing='6'>
-                <Stack spacing={{ base: "2", md: "3" }} textAlign='center'>
+            <Stack spacing="8">
+              <Stack spacing="6">
+                <Stack spacing={{ base: "2", md: "3" }} textAlign="center">
                   <Heading size={headingBR}>Create an account.</Heading>
-                  <HStack spacing='1' justify='center'>
-                    <Text color='muted'>Already a user? </Text>
-                    <Button as={ReactLink} to='/registration' variant='link' colorScheme='orange'>
+                  <HStack spacing="1" justify="center">
+                    <Text color="muted">Already a user? </Text>
+                    <Button
+                      as={ReactLink}
+                      to="/registration"
+                      variant="link"
+                      colorScheme="orange"
+                    >
                       Sign in
                     </Button>
                   </HStack>
@@ -121,35 +143,56 @@ const RegistrationScreen = () => {
                 boxShadow={{ base: "none", md: "xl" }}
               >
                 {/* The Alert component is used to display an error message if there is an error during form submission. */}
-                <Stack spacing='6' as='form' onSubmit={formik.handleSubmit}>
+                <Stack spacing="6" as="form" onSubmit={formik.handleSubmit}>
                   {error && (
                     <Alert
-                      status='error'
-                      flexDirection='column'
-                      alignItems='center'
-                      justifyContent='center'
-                      textAlign='center'
+                      status="error"
+                      flexDirection="column"
+                      alignItems="center"
+                      justifyContent="center"
+                      textAlign="center"
                     >
                       <AlertIcon />
                       <AlertTitle>We are sorry!</AlertTitle>
                       <AlertDescription>{error}</AlertDescription>
                     </Alert>
                   )}
-                  <Stack spacing='5'>
+                  <Stack spacing="5">
                     <FormControl>
-                      <TextField type='text' name='name' placeholder='Your first and last name.' label='Full name' />
-                      <TextField type='text' name='email' placeholder='you@example.com' label='Email' />
-                      <PasswordTextField type='password' name='password' placeholder='your password' label='Password' />
+                      <TextField
+                        type="text"
+                        name="name"
+                        placeholder="Your first and last name."
+                        label="Full name"
+                      />
+                      <TextField
+                        type="text"
+                        name="email"
+                        placeholder="you@example.com"
+                        label="Email"
+                      />
                       <PasswordTextField
-                        type='password'
-                        name='confirmPassword'
-                        placeholder='Confirm your password'
-                        label='Confirm your password'
+                        type="password"
+                        name="password"
+                        placeholder="your password"
+                        label="Password"
+                      />
+                      <PasswordTextField
+                        type="password"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        label="Confirm your password"
                       />
                     </FormControl>
                   </Stack>
-                  <Stack spacing='6'>
-                    <Button colorScheme='orange' size='lg' fontSize='md' isLoading={loading} type='submit'>
+                  <Stack spacing="6">
+                    <Button
+                      colorScheme="orange"
+                      size="lg"
+                      fontSize="md"
+                      isLoading={loading}
+                      type="submit"
+                    >
                       Sign up
                     </Button>
                   </Stack>

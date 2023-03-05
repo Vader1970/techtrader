@@ -25,7 +25,11 @@ const OrderSuccessScreen = () => {
   // Function to handle logout by dispatching the logout action, showing a success toast, and navigating back to the products page
   const logoutHandler = () => {
     dispatch(logout());
-    toast({ description: "You have been logged out.", status: "success", isClosable: true });
+    toast({
+      description: "You have been logged out.",
+      status: "success",
+      isClosable: true,
+    });
     navigate("/products");
   };
 
@@ -33,38 +37,48 @@ const OrderSuccessScreen = () => {
   return (
     <Wrap
       bg={mode("white", "blue.900")}
-      justify='center'
-      fontFamily='roboto'
-      direction='column'
-      align='center'
-      minH='100vh'
+      justify="center"
+      fontFamily="roboto"
+      direction="column"
+      align="center"
+      minH="100vh"
     >
       {/* Rendering an alert with a success message and icon */}
       <Alert
         bg={mode("white", "blue.900")}
-        pt='4'
-        status='success'
-        variant='subtle'
-        flexDirection='column'
-        alignItems='center'
-        justifyContent='center'
-        textAlign='center'
-        height='auto'
+        pt="4"
+        status="success"
+        variant="subtle"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        textAlign="center"
+        height="auto"
       >
-        <AlertIcon boxSize='55px' />
-        <AlertTitle pt='8px' fontSize='xl'>
+        <AlertIcon boxSize="55px" />
+        <AlertTitle pt="8px" fontSize="xl">
           Payment Successful!
         </AlertTitle>
 
         {/* Rendering a stack of buttons with different functionalities */}
-        <Stack mt='20px' minW='200px'>
-          <Button colorScheme='blue' variant='outline' as={ReactLink} to='/your-orders'>
+        <Stack mt="20px" minW="200px">
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            as={ReactLink}
+            to="/your-orders"
+          >
             Your Order
           </Button>
-          <Button colorScheme='blue' variant='outline' as={ReactLink} to='/products'>
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            as={ReactLink}
+            to="/products"
+          >
             Products
           </Button>
-          <Button colorScheme='blue' variant='outline' onClick={logoutHandler}>
+          <Button colorScheme="blue" variant="outline" onClick={logoutHandler}>
             Logout
           </Button>
         </Stack>

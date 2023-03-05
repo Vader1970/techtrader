@@ -41,15 +41,27 @@ const ProductsScreen = () => {
   // Render the component
   return (
     // Render a Wrap component with a background color that depends on the color mode
-    <Wrap bg={mode("white", "blue.900")} spacing='30px' justify='center' minHeight='100vh'>
+    <Wrap
+      bg={mode("white", "blue.900")}
+      spacing="30px"
+      justify="center"
+      minHeight="100vh"
+    >
       {loading ? (
         // If the products are loading, render a Spinner component
-        <Stack direction='row' spacing={4}>
-          <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='orange.500' size='xl' />
+        <Stack direction="row" spacing={4}>
+          <Spinner
+            mt={20}
+            thickness="2px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="orange.500"
+            size="xl"
+          />
         </Stack>
       ) : // If there's an error, render an Alert component with an error status
       error ? (
-        <Alert status='error'>
+        <Alert status="error">
           <AlertIcon />
           <AlertTitle>We are sorry!</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
@@ -57,8 +69,8 @@ const ProductsScreen = () => {
       ) : (
         // Otherwise, map over the products and render a WrapItem with a ProductCard component inside a Center component
         products.map((product) => (
-          <WrapItem fontFamily='roboto' key={product._id}>
-            <Center w='250px' h='550px'>
+          <WrapItem fontFamily="roboto" key={product._id}>
+            <Center w="250px" h="550px">
               <ProductCard product={product} />
             </Center>
           </WrapItem>
