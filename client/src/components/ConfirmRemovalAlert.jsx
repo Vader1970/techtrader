@@ -42,7 +42,7 @@ const ConfirmRemovalAlert = ({
 
           {/* Render a warning message to confirm the action. */}
           <AlertDialogBody>
-            Are you sure? You can't undo this actoin afterwards.{" "}
+            Are you sure? You can't undo this action afterwards.{" "}
           </AlertDialogBody>
           <AlertDialogFooter>
             {/* Render a cancel button to close the dialog. */}
