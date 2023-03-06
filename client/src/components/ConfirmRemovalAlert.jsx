@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // This component renders a confirmation dialog to delete an item.
 import {
   Button,

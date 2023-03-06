@@ -12,6 +12,7 @@ import {
   questionResetError,
 } from "../slices/products";
 
+// **Coded by Tin Mariano**//
 // An async action creator that fetches all products from the server.
 export const getProducts = () => async (dispatch) => {
   dispatch(setLoading(true));
@@ -31,6 +32,7 @@ export const getProducts = () => async (dispatch) => {
   }
 };
 
+// **Coded by Supriya Sharma**//
 // An async action creator that fetches a single product from the server.
 export const getProduct = (id) => async (dispatch) => {
   dispatch(setLoading(true));
@@ -50,6 +52,7 @@ export const getProduct = (id) => async (dispatch) => {
   }
 };
 
+// **Coded by Supriya Sharma**//
 // An async action creator that creates a new review for a product.
 export const createProductReview = (productId, userId, comment, rating, title) => async (dispatch, getState) => {
   dispatch(setLoading());
@@ -80,6 +83,7 @@ export const createProductReview = (productId, userId, comment, rating, title) =
   }
 };
 
+// **Coded by Supriya Sharma**//
 // An async action creator that creates a new question for a product.
 export const createQuestionReview =
   (productId, userId, questionsComment, questionsTitle) => async (dispatch, getState) => {
@@ -115,11 +119,13 @@ export const createQuestionReview =
     }
   };
 
+// **Coded by Supriya Sharma**//
 // An async action creator that resets the product error state.
 export const resetProductError = () => async (dispatch) => {
   dispatch(resetError());
 };
 
+// **Coded by Supriya Sharma**//
 // An async action creator that resets the question error state.
 export const resetQuestionError = () => async (dispatch) => {
   dispatch(questionResetError());

@@ -1,3 +1,5 @@
+// **Coded by Tin Mariano**//
+
 // Importing required modules from Chakra UI, Redux, and React Router DOM
 import {
   Box,

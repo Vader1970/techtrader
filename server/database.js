@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey**//
+
 // This code establishes a connection to a MongoDB database using the Mongoose library. First, an async function called connectToDatabase is defined. Inside this function, we use the mongoose.set() method to set an option that allows for more flexible querying. Then, we use the mongoose.connect() method to connect to the database using the MONGO_URI environment variable and some additional options. If the connection is successful, we log a message indicating the host to which we have connected. If the connection fails, we log an error message. Finally, the connectToDatabase function is exported so that it can be used in other parts of the code.
 
 // connection to our database.

@@ -1,6 +1,7 @@
 // Import the Mongoose library
 import mongoose from "mongoose";
 
+// **Coded by Supriya Sharma**//
 // Define a schema for product reviews
 const reviewSchema = new mongoose.Schema(
   {
@@ -19,6 +20,7 @@ const reviewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// **Coded by Supriya Sharma**//
 // Define a schema for product questions
 const questionsSchema = new mongoose.Schema(
   {
@@ -35,6 +37,7 @@ const questionsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// **Coded by Tin Mariano**//
 // Define the schema for products
 const productSchema = new mongoose.Schema(
   {

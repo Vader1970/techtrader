@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 // import axios library for making HTTP requests
 import axios from "axios";
 
@@ -131,6 +133,7 @@ export const resetUpdateSuccess = () => async (dispatch) => {
   dispatch(resetUpdate());
 };
 
+// **Coded by Daniel Wilkey** //
 // This code defines the getUserOrders function, which returns an async function that dispatches the setUserOrders action after making an API call to get the user's orders from the backend database.
 export const getUserOrders = () => async (dispatch, getSate) => {
   // sets loading to true while the API call is being made

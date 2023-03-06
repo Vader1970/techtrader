@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 import express from "express";
 import User from "../models/User.js";
 import Order from "../models/Order.js";
@@ -85,6 +87,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// **Coded by Daniel Wilkey** //
 const getUserOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.params.id });
   if (orders) {

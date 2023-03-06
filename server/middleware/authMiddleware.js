@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Importing the necessary modules for the code to work: jsonwebtoken, express-async-handler, and the User model.
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";

@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Import necessary dependencies from Chakra UI and React
 import {
   Button,

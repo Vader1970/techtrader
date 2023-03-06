@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Here is a step-by-step breakdown of what the component does:
 
 // Import statements: The component imports various components from the Chakra UI library, including Box, Flex, Heading, HStack, Link, Stack, and Spinner. It also imports the useSelector hook from the react-redux library to access the state of the cart from the Redux store.

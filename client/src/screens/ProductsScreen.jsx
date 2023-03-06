@@ -1,3 +1,5 @@
+// **Coded by Tin Mariano**//
+
 // This code defines a component called ProductsScreen, which displays a list of products. The component first initializes the dispatch function using the useDispatch hook from React Redux. It then uses the useSelector hook to get the product list from the Redux store, and extracts the loading, error, and products properties from it.
 
 // The component also uses the useEffect hook to dispatch an action to get the products on component mount.

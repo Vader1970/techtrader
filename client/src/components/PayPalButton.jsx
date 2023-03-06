@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // This imports the PayPalScriptProvider and PayPalButtons components from the @paypal/react-paypal-js library, which provides a simple way to integrate PayPal payment functionality into a React application. These components will be used later in the code to render the PayPal payment buttons.
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 

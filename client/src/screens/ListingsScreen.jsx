@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Importing required modules from Chakra UI, Redux, and React Router DOM
 import {
   Box,

@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 // Importing the required modules
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";

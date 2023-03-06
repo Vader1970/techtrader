@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Importing necessary components from Chakra UI and React Router DOM
 import {
   Button,

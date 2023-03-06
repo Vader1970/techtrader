@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // This code implements a Redux store slice for managing a shopping cart. The code imports createSlice from the @reduxjs/toolkit library. This library provides utilities for creating and working with Redux stores in a simpler and more efficient manner.
 
 // The calculateSubtotal function takes an array of cart items as input, iterates over the items, and calculates the subtotal by summing up the product of the quantity and price of each item. The subtotal is returned as a string with two decimal places.

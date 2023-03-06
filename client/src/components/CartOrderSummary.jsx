@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 import { Button, Flex, Heading, Stack, Text, useColorModeValue as mode, Badge } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";

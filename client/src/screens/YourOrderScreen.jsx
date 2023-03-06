@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // This component renders the user's orders on the "Your Orders" screen.
 // It fetches the orders from the Redux store using the getUserOrders action.
 // If the user is not authenticated, it redirects to the login screen.

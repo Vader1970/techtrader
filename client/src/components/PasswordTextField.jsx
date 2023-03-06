@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 // This code exports a component called PasswordTextField that renders an input field for passwords, with a button to toggle the password's visibility.
 import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";

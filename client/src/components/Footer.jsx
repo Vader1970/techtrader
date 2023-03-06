@@ -1,4 +1,4 @@
-// Template of Footer copied from https://pro.chakra-ui.com/components/free . Template name 'Showcase on white background. I only made adjustments needed for this app.
+// **Coded by Tin Mariano**//
 
 // Import required Chakra UI components and React icons
 import {

@@ -1,17 +1,22 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
+// **Coded by Supriya Sharma**//
 // Import the products slice
 import products from "./slices/products";
 
+// **Coded by Daniel Wilkey** //
 // Import the cart slice
 import cart from "./slices/cart";
 
+// **Coded by Supriya Sharma**//
 // Import the user slice
 import user from "./slices/user";
 
+// **Coded by Daniel Wilkey**//
 // Import the order slice
 import order from "./slices/order";
 
+// **Coded by Daniel Wilkey**//
 // Import the listings slice
 import listings from "./slices/listings";
 
