@@ -1,4 +1,4 @@
-// **Coded by Supriya Sharma**//
+// **Coded by Tin Mariano**//
 
 // importing Chakra UI components
 import {
