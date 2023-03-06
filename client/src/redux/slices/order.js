@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Import the createSlice function from the Redux Toolkit library
 import { createSlice } from "@reduxjs/toolkit";
 

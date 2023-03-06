@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 import express from "express";
 import asyncHandler from "express-async-handler";
 import Order from "../models/Order.js";
@@ -59,7 +61,6 @@ const setDelivered = asyncHandler(async (req, res) => {
 });
 
 orderRoutes.route("/").post(protectRoute, createOrder);
-// Not sure if this will work?
 orderRoutes.route("/:id").delete(protectRoute, deleteOrder);
 orderRoutes.route("/:id").put(protectRoute, setDelivered);
 orderRoutes.route("/").get(protectRoute, getOrders);

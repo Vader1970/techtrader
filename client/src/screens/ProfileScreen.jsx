@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 // importing Chakra UI components
 import {
   Box,

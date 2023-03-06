@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 import express from "express";
 import Product from "../models/Products.js";
 const productRoutes = express.Router();
@@ -75,6 +77,7 @@ const createQuestionsReview = asyncHandler(async (req, res) => {
   res.status(201).json({ message: "Question has been saved" });
 });
 
+// **Coded by Daniel Wilkey** //
 // Create a product
 const createNewProduct = asyncHandler(async (req, res) => {
   const { brand, name, category, stock, price, image, productIsNew, description } = req.body;
@@ -101,6 +104,7 @@ const createNewProduct = asyncHandler(async (req, res) => {
   }
 });
 
+// **Coded by Daniel Wilkey** //
 // delete a product
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findByIdAndDelete(req.params.id);
@@ -112,6 +116,8 @@ const deleteProduct = asyncHandler(async (req, res) => {
     throw new Error("Product not found");
   }
 });
+
+// **Coded by Daniel Wilkey** //
 // update a product
 const updateProduct = asyncHandler(async (req, res) => {
   const { brand, name, image, category, stock, price, id, productIsNew, description } = req.body;
@@ -140,6 +146,7 @@ productRoutes.route("/").get(getProducts);
 productRoutes.route("/:id").get(getProduct);
 productRoutes.route("/reviews/:id").post(protectRoute, createProductReview);
 productRoutes.route("/questions/:id").post(protectRoute, createQuestionsReview);
+// **Coded by Daniel Wilkey** //
 productRoutes.route("/").put(protectRoute, updateProduct);
 productRoutes.route("/:id").delete(protectRoute, deleteProduct);
 productRoutes.route("/").post(protectRoute, createNewProduct);

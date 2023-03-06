@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Import necessary Chakra UI components and hooks
 import { CloseButton, Flex, Select, useColorModeValue as mode, Stack, Image, Box, Text } from "@chakra-ui/react";
 

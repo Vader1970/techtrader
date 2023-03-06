@@ -1,3 +1,5 @@
+// **Coded by Supriya Sharma**//
+
 // This is a React component that renders a product page with details of a product. It uses the Chakra-UI library to style the page. Here are the key features of the code:
 
 // It imports several modules from React, Chakra-UI, and other third-party libraries.

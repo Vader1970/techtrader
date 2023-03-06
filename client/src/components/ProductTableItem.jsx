@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey**//
+
 // Importing required dependencies and components from Chakra UI and React
 import {
   Button,
@@ -25,7 +27,6 @@ import ConfirmRemovalAlert from "./ConfirmRemovalAlert";
 
 // Component to render each product in the table
 const ProductTableItem = ({ product }) => {
-
   // Declaring variables and state hooks
   const cancelRef = useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -55,7 +56,6 @@ const ProductTableItem = ({ product }) => {
       {/* This is a container for the form inputs */}
       <Wrap spacing='30px' justify='center' border='1px' borderColor='gray.600' my='20px'>
         <Stack direction={{ base: "column", lg: "row" }} align='center'>
-
           {/* Section for the product image */}
           <Stack my='20px'>
             <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
@@ -123,11 +123,9 @@ const ProductTableItem = ({ product }) => {
 
               {/* This is a container for the "New" badge toggle */}
               <FormControl display='flex' alignItems='center'>
-
                 {/* This is a label for the "New" badge toggle */}
                 <FormLabel htmlFor='productIsNewFlag' mb='0' fontSize='sm'>
                   Enable
-
                   {/* This is a badge for the "New" flag */}
                   <Badge rounded='full' px='1' mx='1' fontSize='0.8em' colorScheme='green'>
                     New
@@ -147,7 +145,6 @@ const ProductTableItem = ({ product }) => {
 
           <Stack>
             <VStack mb='20px'>
-
               {/* This is a button to remove the product */}
               <Button mb='20px' colorScheme='red' my='20px' w='160px' variant='outline' onClick={openDeleteConfirmBox}>
                 <DeleteIcon mr='5px' />
@@ -163,7 +160,7 @@ const ProductTableItem = ({ product }) => {
           </Stack>
         </Stack>
       </Wrap>
-      
+
       {/* This is a confirmation dialog for deleting a product */}
       <ConfirmRemovalAlert
         isOpen={isOpen}

@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Import the Mongoose library
 import mongoose from "mongoose";
 

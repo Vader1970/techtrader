@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Importing necessary modules from Chakra-UI and react-redux
 import {
   Box,

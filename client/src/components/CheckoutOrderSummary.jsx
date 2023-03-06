@@ -1,3 +1,5 @@
+// **Coded by Daniel Wilkey** //
+
 // Importing components from Chakra UI
 import {
   Flex,
