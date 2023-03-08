@@ -41,7 +41,7 @@ const AddNewProduct = () => {
   // This function is called when the "Save Product" button is clicked.
   // It creates a new product object with the current form field values.
   const createNewProduct = () => {
-    dispatch(uploadProduct({ brand, name, category, stock, price, image, productIsNew, description }));
+    dispatch(uploadProduct({ brand, name, category, stock, price, image: image.name, productIsNew, description }));
   };
 
   // Render the component's UI
@@ -58,22 +58,12 @@ const AddNewProduct = () => {
           <Tooltip label={"Set the name of your image e.g., iPhone.jpg"} fontSize='sm'>
             {/* Input element with given size, value and onChange function to set image state */}
             <Input
-              size='sm'
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              h='325px'
-              placeholder='e.g., iPhone.jpg'
-              sx={{
-                position: "relative",
-                "&::placeholder": {
-                  textAlign: "left",
-                  verticalAlign: "top",
-                  position: "absolute",
-                  top: 0,
-                  left: 2,
-                  transform: "translate(0, 40%)",
-                },
+              type='file'
+              accept='image/*'
+              onChange={(e) => {
+                setImage(e.target.files[0]);
               }}
+              height='325px'
             />
           </Tooltip>
         </Stack>
