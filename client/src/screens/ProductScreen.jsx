@@ -466,4 +466,5 @@ const ProductScreen = () => {
     </Wrap>
   );
 };
+
 export default ProductScreen;
