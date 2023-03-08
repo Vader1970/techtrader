@@ -275,7 +275,6 @@ const ProductScreen = () => {
                         2 year extended warranty
                       </Text>
                     </Flex>
-
                     <Flex alignItems="center">
                       <BiSupport size="20px" />
                       <Text fontWeight="medium" fontSize="sm" ml="2">
@@ -467,5 +466,4 @@ const ProductScreen = () => {
     </Wrap>
   );
 };
-
 export default ProductScreen;
