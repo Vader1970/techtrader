@@ -63,9 +63,17 @@ const AddNewProduct = () => {
               onChange={(e) => {
                 setImage(e.target.files[0]);
               }}
-              height='325px'
+              height='32px'
             />
           </Tooltip>
+          {/* Add an image tag to display the selected image */}
+          {image && (
+            <img
+              src={URL.createObjectURL(image)}
+              alt='selected file'
+              style={{ maxWidth: "100%", height: "285px", marginTop: "10px" }}
+            />
+          )}
         </Stack>
         <Stack>
           {/* A header for the product description input field */}
