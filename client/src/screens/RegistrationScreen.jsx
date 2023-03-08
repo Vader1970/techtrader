@@ -205,5 +205,4 @@ const RegistrationScreen = () => {
     </Wrap>
   );
 };
-
 export default RegistrationScreen;
