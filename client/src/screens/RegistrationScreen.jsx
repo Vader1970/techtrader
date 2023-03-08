@@ -23,11 +23,10 @@ import TextField from "../components/TextField";
 import PasswordTextField from "../components/PasswordTextField";
 import { useEffect } from "react";
 import { Formik } from "formik";
-import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link as ReactLink } from "react-router-dom";
 import { register } from "../redux/actions/userActions";
-
+import * as Yup from "yup";
 // Initializing required variables and hooks
 const RegistrationScreen = () => {
   // navigation hook
@@ -70,7 +69,6 @@ const RegistrationScreen = () => {
     }
     // dependencies for useEffect
   }, [userInfo, redirect, error, navigate, toast]);
-
   // Wrapping the form in a responsive container with a background color
   return (
     <Wrap
@@ -126,7 +124,7 @@ const RegistrationScreen = () => {
                 <Stack spacing={{ base: "2", md: "3" }} textAlign="center">
                   <Heading size={headingBR}>Create an account.</Heading>
                   <HStack spacing="1" justify="center">
-                    <Text color="muted">Already a user? </Text>
+                    <Text color="muted">Already a user?</Text>
                     <Button
                       as={ReactLink}
                       to="/registration"
