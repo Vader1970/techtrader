@@ -137,7 +137,7 @@ const AddNewProduct = () => {
             <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Price
             </Heading>
-            <Input size='sm' w='200px' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='$299.99' />
+            <Input size='sm' w='200px' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='299.99' />
 
             {/* This is the "Stock" field */}
             <Heading fontSize='sm' fontWeight='extrabold' w='200px'>

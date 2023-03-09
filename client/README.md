@@ -2,7 +2,7 @@
 
 ## Project Introduction
 
-Our objective for this formative is to work as a team to build an application that is intuitive to use and displays data from an API in an easily understandable representation. Before implementation, the application will be modeled and prototypes will be tested. The implementation of the project will be managed using agile methodologies. All contributed code will adhere to the team’s best practices. Project dependencies will be managed and the application will be built for production.
+Our objective for this formative is to work as a team to build an application that is intuitive to use and displays data from an API in an easily understandable representation. Before implementation, the application will be modelled and prototypes will be tested. The implementation of the project will be managed using agile methodologies. All contributed code will adhere to the team’s best practices. Project dependencies will be managed and the application will be built for production.
 
 Our project proposal should adhere to Yoobee Best Practices, and in particular, it must include:
 
