@@ -55,7 +55,7 @@ const AddNewProduct = () => {
           </Heading>
 
           {/* A tooltip to guide the user in setting the image name */}
-          <Tooltip label={"Set the name of your image e.g., iPhone.jpg"} fontSize='sm'>
+          <Tooltip label={"Choose image you wish to upload."} fontSize='sm'>
             {/* Input element with given size, value and onChange function to set image state */}
             <Input
               type='file'
