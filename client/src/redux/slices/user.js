@@ -32,6 +32,7 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.userInfo = null;
+      localStorage.removeItem("cartItems"); // clear cart
     },
     // Set error state and reset loading state
     setError: (state, { payload }) => {
