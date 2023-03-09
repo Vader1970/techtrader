@@ -109,7 +109,11 @@ const ProductCard = ({ product }) => {
 
       {/* Show a "sold out" tag if the product is out of stock */}
       {product.stock <= 0 && <Circle size='10px' position='absolute' top={2} right={2} bg='red.200' />}
-      <Image p={4} src={product.image} alt={product.name} roundedTop='lg' />
+
+      {/* Wrap the Image component in a Link component */}
+      <Link as={ReactLink} to={`/product/${product._id}`} pt='2' cursor='pointer'>
+        <Image p={4} src={product.image} alt={product.name} roundedTop='lg' />
+      </Link>
 
       <Box flex='1' maxH='5' alignItems='baseline'>
         {product.stock <= 0 && (
