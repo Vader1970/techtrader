@@ -257,7 +257,7 @@ const ProductScreen = () => {
                       onChange={(e) => {
                         setTitle(e.target.value);
                       }}
-                      placeholder='Review title (optional)'
+                      placeholder='Review title (Required)'
                     />
                     <Textarea
                       onChange={(e) => {
