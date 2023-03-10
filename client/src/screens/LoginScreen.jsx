@@ -180,4 +180,5 @@ const LoginScreen = () => {
     </Wrap>
   );
 };
+
 export default LoginScreen;
