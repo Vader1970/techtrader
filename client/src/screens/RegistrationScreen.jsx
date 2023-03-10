@@ -70,6 +70,7 @@ const RegistrationScreen = () => {
     // dependencies for useEffect
   }, [userInfo, redirect, error, navigate, toast]);
   // Wrapping the form in a responsive container with a background color
+
   return (
     <Wrap
       bg={mode("white", "blue.900")}
