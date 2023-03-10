@@ -33,5 +33,4 @@ const TextField = ({ label, type, name, placeholder }) => {
   );
 };
 // Export the TextField component as the default export of this module
-
 export default TextField;
