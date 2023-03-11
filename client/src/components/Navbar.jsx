@@ -1,4 +1,4 @@
-// **Coded by Tin Mariano**//
+// ** Coded by Tin Mariano **//
 
 // Import necessary modules from Chakra UI, React Router DOM, and React Icons
 import {
