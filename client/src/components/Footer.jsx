@@ -1,4 +1,4 @@
-// **Coded by Tin Mariano**//
+// ** Coded by Tin Mariano **//
 
 // Import required Chakra UI components and React icons
 import {
