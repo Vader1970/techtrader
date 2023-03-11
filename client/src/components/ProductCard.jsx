@@ -1,4 +1,4 @@
-// **Coded by Tin Mariano**//
+// ** Coded by Tin Mariano **//
 
 // This component takes in an object called product as its props. The code imports various components and utilities from the @chakra-ui/react library, react-icons/fi, react-router-dom, and redux.
 
