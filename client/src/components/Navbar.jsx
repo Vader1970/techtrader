@@ -170,10 +170,12 @@ const Navbar = () => {
                   <MdLocalShipping />
                   <Text ml="2">Your Orders</Text>
                 </MenuItem>
-                <MenuItem as={ReactLink} to="/listings">
-                  <BsList />
-                  <Text ml="2">Listings</Text>
-                </MenuItem>
+                {userInfo.isAdmin && (
+                  <MenuItem as={ReactLink} to="/listings">
+                    <BsList />
+                    <Text ml="2">Admin Dashboard</Text>
+                  </MenuItem>
+                )}
                 <MenuDivider />
                 <MenuItem onClick={logoutHandler}>
                   <MdLogout />
