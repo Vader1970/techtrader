@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { setExpress } from "../redux/actions/cartActions";
 import { useState } from "react";
 import { setShippingAddress, setShippingAddressError } from "../redux/actions/orderActions";
-import { model } from "mongoose";
 
 const ShippingInformation = () => {
   // Initialize required state variables
