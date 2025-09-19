@@ -3,8 +3,8 @@
 // This imports the PayPalScriptProvider and PayPalButtons components from the @paypal/react-paypal-js library, which provides a simple way to integrate PayPal payment functionality into a React application. These components will be used later in the code to render the PayPal payment buttons.
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-// This imports the PAYPAL_CLIENT_ID value from a separate client_id.js file located in the parent directory. This value is used to specify the client ID for the PayPal API, which is necessary for communicating with PayPal servers and processing payments.
-import PAYPAL_CLIENT_ID from "../client_id";
+// PayPal Client ID - using environment variable for production
+const PAYPAL_CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID || "AdcOCGNERbESm-TFUT3oQzvissHyWTRYLStuxIe-3Rc7304-q5wNAjKEumBF9-6OkLEEixF_5v7JqAWQ";
 
 // Define a functional component named PayPalButton
 const PayPalButton = ({ total, onPaymentSuccess, onPaymentError, disabled }) => {

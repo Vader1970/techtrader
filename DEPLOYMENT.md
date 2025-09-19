@@ -14,6 +14,9 @@ Add these to your Vercel project settings:
 - `CLOUDINARY_API_KEY` - Your Cloudinary API key  
 - `CLOUDINARY_API_SECRET` - Your Cloudinary API secret
 
+### Optional (for PayPal payments):
+- `REACT_APP_PAYPAL_CLIENT_ID` - Your PayPal client ID
+
 ## Deployment Steps:
 
 1. **Connect your GitHub repository to Vercel**
