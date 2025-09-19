@@ -24,7 +24,7 @@ const OrderSuccessScreen = () => {
   const dispatch = useDispatch();
   const toast = useToast();
 
-  // Function to handle logout by dispatching the logout action, showing a success toast, and navigating back to the products page
+  // Function to handle logout by dispatching the logout action, showing a success toast, and navigating to the home page
   const logoutHandler = () => {
     dispatch(logout());
     toast({
@@ -32,7 +32,7 @@ const OrderSuccessScreen = () => {
       status: "success",
       isClosable: true,
     });
-    navigate("/products");
+    navigate("/");
   };
 
   // Returning the JSX for the order success screen wrapped in a responsive wrapper with Chakra UI styles
@@ -71,14 +71,6 @@ const OrderSuccessScreen = () => {
             to="/your-orders"
           >
             Your Order
-          </Button>
-          <Button
-            colorScheme="blue"
-            variant="outline"
-            as={ReactLink}
-            to="/products"
-          >
-            Products
           </Button>
           <Button colorScheme="blue" variant="outline" onClick={logoutHandler}>
             Logout

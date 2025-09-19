@@ -19,7 +19,7 @@ const protectRoute = asyncHandler(async (req, res, next) => {
       token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
 
-      req.user = User.findById(decoded.id);
+      req.user = await User.findById(decoded.id);
 
       next();
 
@@ -37,5 +37,15 @@ const protectRoute = asyncHandler(async (req, res, next) => {
   }
 });
 
-// Exporting the protectRoute function so it can be used in other files.
-export { protectRoute };
+// Admin middleware to check if user is admin
+const admin = asyncHandler(async (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    next();
+  } else {
+    res.status(401);
+    throw new Error("Not authorized as an admin.");
+  }
+});
+
+// Exporting the protectRoute and admin functions so they can be used in other files.
+export { protectRoute, admin };

@@ -24,8 +24,8 @@ const ListingsScreen = () => {
   // Retrieving current location from React Router DOM
   const location = useLocation();
 
-  // If user information is available, display the listings page, otherwise redirect to login page
-  return userInfo ? (
+  // If user information is available and user is admin, display the listings page, otherwise redirect to login page
+  return userInfo && userInfo.isAdmin ? (
     // Rendering main container with background color
     <Box bg={mode("white", "blue.900")} minH="100vh">
       <Stack
