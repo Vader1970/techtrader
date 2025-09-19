@@ -28,9 +28,18 @@ Add these to your Vercel project settings:
 - The vercel.json file handles routing between frontend and backend
 - Frontend builds to `/client/build/`
 - Backend API routes are served from `/server/index.js`
+- The root package.json now has a `build` script that builds the client
+
+## Build Process:
+
+1. **Root package.json** runs `postinstall` to install dependencies in both client and server
+2. **Client build** runs `cd client && npm run build` 
+3. **Server** is deployed as a Node.js function
+4. **Routing** sends `/api/*` to server, everything else to client build
 
 ## Troubleshooting:
 
 - **404 Error**: Check that vercel.json is in the root directory
+- **Build Failures**: The root package.json now handles building the client properly
 - **Database Connection**: Ensure MONGODB_URI is correct and accessible
-- **Build Failures**: Check that all dependencies are in package.json files
+- **Dependencies**: Both client and server dependencies are installed via postinstall script
