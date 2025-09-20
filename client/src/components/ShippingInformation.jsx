@@ -49,7 +49,7 @@ const ShippingInformation = () => {
           <FormControl
             // Update error state based on form validation and input states
             onChange={
-              Object.keys(formik.errors).length === 0 && Object.keys(formik.touched).length >= 2
+              Object.keys(formik.errors).length === 0
                 ? setErrorState(false, formik.values)
                 : setErrorState(true)
             }

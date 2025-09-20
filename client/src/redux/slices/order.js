@@ -6,7 +6,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // Define the initial state of the order slice
 export const initialState = {
   loading: false,
-  error: true,
+  error: false,
   shippingAddress: null,
   orderInfo: null,
 };
