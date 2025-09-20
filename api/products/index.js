@@ -11,6 +11,7 @@ connectToDatabase();
 export default async function handler(req, res) {
   try {
     if (req.method === "GET") {
+      // Get all products
       const products = await Product.find({});
       res.status(200).json(products);
     } else {
