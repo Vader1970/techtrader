@@ -3,14 +3,20 @@
 
 import dotenv from "dotenv";
 import connectToDatabase from "../../server/database.js";
-import express from "express";
-import productRoutes from "../../server/routes/productRoutes.js";
+import Product from "../../server/models/Products.js";
 
 dotenv.config();
 connectToDatabase();
 
-const app = express();
-app.use(express.json());
-app.use("/", productRoutes);
-
-export default app;
+export default async function handler(req, res) {
+  try {
+    if (req.method === "GET") {
+      const products = await Product.find({});
+      res.status(200).json(products);
+    } else {
+      res.status(405).json({ message: "Method not allowed" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
