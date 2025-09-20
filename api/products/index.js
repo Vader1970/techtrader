@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         category,
         stock,
         price,
-        image: image || "/images/default-product.jpg",
+        image: image || "https://imagedelivery.net/9tq_QYlfJRXOyhlPNUexnA/default-product/public",
         productIsNew: productIsNew || false,
         description,
       });

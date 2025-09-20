@@ -15,6 +15,7 @@ import express from "express";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import imageRoutes from "./routes/imageRoutes.js";
 
 // Loading environment variables from a .env file
 dotenv.config();
@@ -35,6 +36,7 @@ const port = process.env.PORT || 5000;
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/images", imageRoutes);
 
 // Only start the server if not in Vercel environment
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {

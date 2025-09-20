@@ -10,9 +10,8 @@ Add these to your Vercel project settings:
 - `NODE_ENV` - Set to "production"
 
 ### Optional (for image uploads):
-- `CLOUDINARY_CLOUD_NAME` - Your Cloudinary cloud name
-- `CLOUDINARY_API_KEY` - Your Cloudinary API key  
-- `CLOUDINARY_API_SECRET` - Your Cloudinary API secret
+- `NEXT_PUBLIC_CLOUDFLARE_ACCOUNT_HASH` - Your Cloudflare account hash
+- `CLOUDFLARE_IMAGES_TOKEN` - Your Cloudflare Images API token
 
 ### Optional (for PayPal payments):
 - `REACT_APP_PAYPAL_CLIENT_ID` - Your PayPal client ID

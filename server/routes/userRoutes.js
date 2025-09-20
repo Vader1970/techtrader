@@ -10,8 +10,8 @@ import { protectRoute } from "../middleware/authMiddleware.js";
 const userRoutes = express.Router();
 
 //TODO: redefine expiresIn
-const genToken = (id) => {
-  return jwt.sign({ id }, process.env.TOKEN_SECRET, { expiresIn: "60d" });
+const genToken = (id, isAdmin) => {
+  return jwt.sign({ id, isAdmin }, process.env.TOKEN_SECRET, { expiresIn: "60d" });
 };
 
 const loginUser = asyncHandler(async (req, res) => {
@@ -24,7 +24,7 @@ const loginUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: genToken(user._id),
+      token: genToken(user._id, user.isAdmin),
       createdAt: user.createdAt,
     });
   } else {
@@ -53,7 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: genToken(user._id),
+      token: genToken(user._id, user.isAdmin),
       createdAt: user.createdAt,
     });
   } else {
@@ -78,7 +78,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
-      token: genToken(updatedUser._id),
+      token: genToken(updatedUser._id, updatedUser.isAdmin),
       createdAt: updatedUser.createdAt,
     });
   } else {

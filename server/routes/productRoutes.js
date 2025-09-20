@@ -88,7 +88,7 @@ const createNewProduct = asyncHandler(async (req, res) => {
     category,
     stock,
     price,
-    image: "/images/" + image,
+    image: image, // Now using Cloudflare URL directly
     productIsNew,
     description,
   });
@@ -129,7 +129,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.price = price;
     product.description = description;
     product.brand = brand;
-    product.image = "/images/" + image;
+    product.image = image; // Now using Cloudflare URL directly
     product.category = category;
     product.stock = stock;
     product.productIsNew = productIsNew;

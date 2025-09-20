@@ -16,16 +16,21 @@ import {
   Wrap,
   Heading,
   Flex,
+  Spinner,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { MdDriveFolderUpload } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uploadProduct } from "../redux/actions/listingsActions";
+import axios from "axios";
 
 // Define a functional component named AddNewProduct
 const AddNewProduct = () => {
   // Initialize state variables and a dispatch function using the useState and useDispatch hooks from Redux
   const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.user);
   const [brand, setBrand] = useState("");
 
   // These are the state variables for the form fields and the "New" badge toggle.
@@ -36,12 +41,73 @@ const AddNewProduct = () => {
   const [productIsNew, setProductIsNew] = useState(true);
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+
+  // Function to upload image to Cloudflare
+  const uploadImageToCloudflare = async (file) => {
+    setUploading(true);
+    setUploadError("");
+    
+    try {
+      // Convert file to base64
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Data = e.target.result.split(',')[1]; // Remove data:image/jpeg;base64, prefix
+        
+        try {
+          const config = {
+            headers: {
+              Authorization: `Bearer ${userInfo.token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          
+          const response = await axios.post('/api/images/upload', {
+            imageData: base64Data,
+            filename: file.name
+          }, config);
+          
+          if (response.data.success) {
+            setImageUrl(response.data.imageUrl);
+            setUploadError("");
+          } else {
+            setUploadError("Failed to upload image");
+          }
+        } catch (error) {
+          setUploadError("Failed to upload image: " + error.message);
+        } finally {
+          setUploading(false);
+        }
+      };
+      
+      reader.readAsDataURL(file);
+    } catch (error) {
+      setUploadError("Failed to process image: " + error.message);
+      setUploading(false);
+    }
+  };
 
   // Define a function named createNewProduct which dispatches an action to upload the product details to the store
   // This function is called when the "Save Product" button is clicked.
   // It creates a new product object with the current form field values.
   const createNewProduct = () => {
-    dispatch(uploadProduct({ brand, name, category, stock, price, image: image.name, productIsNew, description }));
+    if (!imageUrl) {
+      setUploadError("Please upload an image first");
+      return;
+    }
+    
+    dispatch(uploadProduct({ 
+      brand, 
+      name, 
+      category, 
+      stock, 
+      price, 
+      image: imageUrl, 
+      productIsNew, 
+      description 
+    }));
   };
 
   // Render the component's UI
@@ -51,23 +117,53 @@ const AddNewProduct = () => {
         <Stack my='20px'>
           {/* A header for the image input field */}
           <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
-            Image file name
+            Upload Product Image
           </Heading>
 
           {/* A tooltip to guide the user in setting the image name */}
-          <Tooltip label={"Choose image you wish to upload."} fontSize='sm'>
+          <Tooltip label={"Choose image you wish to upload to Cloudflare."} fontSize='sm'>
             {/* Input element with given size, value and onChange function to set image state */}
             <Input
               type='file'
               accept='image/*'
               onChange={(e) => {
-                setImage(e.target.files[0]);
+                const file = e.target.files[0];
+                if (file) {
+                  setImage(file);
+                  uploadImageToCloudflare(file);
+                }
               }}
               height='32px'
+              disabled={uploading}
             />
           </Tooltip>
-          {/* Add an image tag to display the selected image */}
-          {image && (
+
+          {/* Upload status and error messages */}
+          {uploading && (
+            <Flex align="center" gap={2}>
+              <Spinner size="sm" />
+              <Text fontSize="sm">Uploading to Cloudflare...</Text>
+            </Flex>
+          )}
+
+          {uploadError && (
+            <Alert status="error" size="sm">
+              <AlertIcon />
+              {uploadError}
+            </Alert>
+          )}
+
+          {/* Display uploaded image */}
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt='uploaded product'
+              style={{ maxWidth: "100%", height: "285px", marginTop: "10px" }}
+            />
+          )}
+
+          {/* Fallback: Display selected image before upload */}
+          {image && !imageUrl && !uploading && (
             <img
               src={URL.createObjectURL(image)}
               alt='selected file'
@@ -170,7 +266,15 @@ const AddNewProduct = () => {
 
         <VStack>
           {/* When button is clicked, it triggers the createNewProduct function. */}
-          <Button variant='outline' w='160px' my='20px' colorScheme='orange' onClick={() => createNewProduct()}>
+          <Button 
+            variant='outline' 
+            w='160px' 
+            my='20px' 
+            colorScheme='orange' 
+            onClick={() => createNewProduct()}
+            disabled={uploading || !imageUrl}
+            isLoading={uploading}
+          >
             {/* This icon component is added to the button, representing a drive folder upload. */}
             <MdDriveFolderUpload />
 
