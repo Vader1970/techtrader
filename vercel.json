@@ -4,13 +4,24 @@
     "functions": {
         "api/images/upload/index.js": {
             "maxDuration": 30
+        },
+        "api/products/index.js": {
+            "maxDuration": 30
+        },
+        "api/products/[id]/index.js": {
+            "maxDuration": 30
+        },
+        "api/users/index.js": {
+            "maxDuration": 30
+        },
+        "api/users/login/index.js": {
+            "maxDuration": 30
+        },
+        "api/users/register/index.js": {
+            "maxDuration": 30
         }
     },
     "rewrites": [
-        {
-            "source": "/api/images/(.*)",
-            "destination": "/api/images/upload"
-        },
         {
             "source": "/(.*)",
             "destination": "/index.html"
