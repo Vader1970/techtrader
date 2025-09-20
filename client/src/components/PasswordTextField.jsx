@@ -19,11 +19,19 @@ const PasswordTextField = ({ label, type, name, placeholder }) => {
   return (
     <FormControl isInvalid={meta.error && meta.touched} mb='6'>
       {/* Render a label for the input field */}
-      <FormLabel noOfLines={1}>{label}</FormLabel>
+      <FormLabel htmlFor={name} noOfLines={1}>{label}</FormLabel>
       {/* Render an InputGroup component to contain the input field and the toggle password visibility button */}
       <InputGroup>
         {/* Use the Field component from Formik to render the input field */}
-        <Field as={Input} {...field} type={showPassword ? "text" : type} name={name} placeholder={placeholder} />
+        <Field 
+          as={Input} 
+          {...field} 
+          type={showPassword ? "text" : type} 
+          name={name} 
+          id={name}
+          placeholder={placeholder} 
+          autoComplete="current-password"
+        />
         {/* Render an InputRightElement component to contain the toggle password visibility button */}
         <InputRightElement h='full'>
           {/* Render a Button component to toggle the password's visibility */}

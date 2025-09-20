@@ -55,20 +55,20 @@ const ShippingInformation = () => {
             }
           >
             {/* Render address field using TextField component */}
-            <TextField name='address' placeholder='Street Address' label='Street Address' />
+            <TextField name='address' placeholder='Street Address' label='Street Address' type='text' />
             <Flex>
               <Box flex='1' mr='10'>
                 {/* Render postal code field using TextField component */}
-                <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' type='number' />
+                <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' type='text' />
               </Box>
               <Box flex='2'>
                 {/* Render city field using TextField component */}
-                <TextField name='city' placeholder='City' label='City' />
+                <TextField name='city' placeholder='City' label='City' type='text' />
               </Box>
             </Flex>
 
             {/* Render country field using TextField component */}
-            <TextField name='country' placeholder='Country' label='Country' />
+            <TextField name='country' placeholder='Country' label='Country' type='text' />
           </FormControl>
           <Box w='100%' h='180px' pr='5'>
             {/* Render shipping method section using Heading, RadioGroup, and Stack components */}

@@ -1,4 +1,18 @@
 {
     "buildCommand": "cd client && npm run build",
-    "outputDirectory": "client/build"
+    "outputDirectory": "client/build",
+    "functions": {
+        "api/orders/index.js": {
+            "runtime": "nodejs18.x"
+        },
+        "api/orders/user/index.js": {
+            "runtime": "nodejs18.x"
+        },
+        "api/users/index.js": {
+            "runtime": "nodejs18.x"
+        },
+        "api/products/index.js": {
+            "runtime": "nodejs18.x"
+        }
+    }
 }

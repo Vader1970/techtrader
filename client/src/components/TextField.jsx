@@ -18,14 +18,24 @@ const TextField = ({ label, type, name, placeholder }) => {
   return (
     <FormControl isInvalid={meta.error && meta.touched} mb="6">
       {/* Display the label for the input field */}
-      <FormLabel noOfLines={1}>{label}</FormLabel>
+      <FormLabel htmlFor={name} noOfLines={1}>{label}</FormLabel>
       {/* Render the input field using the `Field` component from Formik */}
       <Field
         as={Input}
         {...field}
         type={type}
         name={name}
+        id={name}
         placeholder={placeholder}
+        autoComplete={
+          type === "email" ? "email" : 
+          type === "password" ? "current-password" : 
+          name === "address" ? "street-address" :
+          name === "postalCode" ? "postal-code" :
+          name === "city" ? "address-level2" :
+          name === "country" ? "country-name" :
+          "off"
+        }
       />
       {/* Display an error message if the input is invalid */}
       <FormErrorMessage>{meta.error}</FormErrorMessage>
