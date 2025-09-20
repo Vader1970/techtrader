@@ -91,6 +91,8 @@ const AddNewProduct = () => {
             }}
             placeholder='Description'
             size='sm'
+            id='productDescription'
+            name='productDescription'
           />
         </Stack>
         <Stack>
@@ -107,6 +109,8 @@ const AddNewProduct = () => {
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
               placeholder='Apple or Samsung etc.'
+              id='productBrand'
+              name='productBrand'
             />
 
             {/* This is the "Name" field */}
@@ -119,6 +123,8 @@ const AddNewProduct = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder='Samsung S30'
+              id='productName'
+              name='productName'
             />
 
             {/* This is the "Category" field */}
@@ -131,19 +137,21 @@ const AddNewProduct = () => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               placeholder='Electronics'
+              id='productCategory'
+              name='productCategory'
             />
 
             {/* This is the "Price" field */}
             <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Price
             </Heading>
-            <Input size='sm' w='200px' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='299.99' />
+            <Input size='sm' w='200px' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='299.99' id='productPrice' name='productPrice' />
 
             {/* This is the "Stock" field */}
             <Heading fontSize='sm' fontWeight='extrabold' w='200px'>
               Stock
             </Heading>
-            <Input size='sm' w='200px' value={stock} onChange={(e) => setStock(e.target.value)} />
+            <Input size='sm' w='200px' value={stock} onChange={(e) => setStock(e.target.value)} id='productStock' name='productStock' />
 
             {/* This is the "New" badge toggle */}
             <Text fontSize='sm'>New Badge shown on product card</Text>

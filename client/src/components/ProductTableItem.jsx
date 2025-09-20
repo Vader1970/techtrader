@@ -63,7 +63,7 @@ const ProductTableItem = ({ product }) => {
             </Heading>
 
             {/* This is an input field for the product image, with a callback to update the "image" state variable */}
-            <Input size='sm' w='250px' value={image} onChange={(e) => setImage(e.target.value)} />
+            <Input size='sm' w='250px' value={image} onChange={(e) => setImage(e.target.value)} id={`image-${product._id}`} name={`image-${product._id}`} />
 
             {/* Tooltip to show the full image url  */}
             <Tooltip label={product.image} fontSize='sm'>
@@ -84,6 +84,8 @@ const ProductTableItem = ({ product }) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               size='sm'
+              id={`description-${product._id}`}
+              name={`description-${product._id}`}
             />
           </Stack>
 
@@ -95,36 +97,36 @@ const ProductTableItem = ({ product }) => {
               </Heading>
 
               {/* This is an input field for the product brand, with a callback to update the "brand" state variable */}
-              <Input size='sm' w='250px' value={brand} onChange={(e) => setBrand(e.target.value)} />
+              <Input size='sm' w='250px' value={brand} onChange={(e) => setBrand(e.target.value)} id={`brand-${product._id}`} name={`brand-${product._id}`} />
               <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 NAME
               </Heading>
 
               {/* This is an input field for the product name, with a callback to update the "name" state variable */}
-              <Input size='sm' w='250px' value={name} onChange={(e) => setName(e.target.value)} />
+              <Input size='sm' w='250px' value={name} onChange={(e) => setName(e.target.value)} id={`name-${product._id}`} name={`name-${product._id}`} />
               <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 CATEGORY
               </Heading>
 
               {/* This is an input field for the product category, with a callback to update the "category" state variable */}
-              <Input size='sm' w='250px' value={category} onChange={(e) => setCategory(e.target.value)} />
+              <Input size='sm' w='250px' value={category} onChange={(e) => setCategory(e.target.value)} id={`category-${product._id}`} name={`category-${product._id}`} />
               <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 PRICE
               </Heading>
 
               {/* This is an input field for the product price, with a callback to update the "price" state variable */}
-              <Input size='sm' w='250px' value={price} onChange={(e) => setPrice(e.target.value)} />
+              <Input size='sm' w='250px' value={price} onChange={(e) => setPrice(e.target.value)} id={`price-${product._id}`} name={`price-${product._id}`} />
               <Heading fontSize='sm' fontWeight='extrabold' w='250px'>
                 STOCK
               </Heading>
 
               {/* This is an input field for the product stock, with a callback to update the "stock" state variable */}
-              <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} />
+              <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} id={`stock-${product._id}`} name={`stock-${product._id}`} />
 
               {/* This is a container for the "New" badge toggle */}
               <FormControl display='flex' alignItems='center'>
                 {/* This is a label for the "New" badge toggle */}
-                <FormLabel htmlFor='productIsNewFlag' mb='0' fontSize='sm'>
+                <FormLabel htmlFor={`productIsNewFlag-${product._id}`} mb='0' fontSize='sm'>
                   Enable
                   {/* This is a badge for the "New" flag */}
                   <Badge rounded='full' px='1' mx='1' fontSize='0.8em' colorScheme='green'>
@@ -135,7 +137,7 @@ const ProductTableItem = ({ product }) => {
 
                 {/* This is a toggle switch for the "New" badge */}
                 <Switch
-                  id='productIsNewFlag'
+                  id={`productIsNewFlag-${product._id}`}
                   onChange={() => setProductIsNew(!productIsNew)}
                   isChecked={productIsNew}
                 />

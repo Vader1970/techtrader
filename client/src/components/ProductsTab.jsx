@@ -3,8 +3,6 @@
 // Importing necessary modules from Chakra-UI and react-redux
 import {
   Box,
-  Table,
-  Tbody,
   Alert,
   Stack,
   Spinner,
@@ -81,20 +79,12 @@ const ProductsTab = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb='4'>
-                <Table>
-                  <Tbody>
-                    <AddNewProduct />
-                  </Tbody>
-                </Table>
+                <AddNewProduct />
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
-          <Table variant='simple' size='lg'>
-            <Tbody>
-              {products.length > 0 &&
-                products.map((product) => <ProductTableItem key={product._id} product={product} />)}
-            </Tbody>
-          </Table>
+          {products.length > 0 &&
+            products.map((product) => <ProductTableItem key={product._id} product={product} />)}
         </Box>
       )}
     </Box>
