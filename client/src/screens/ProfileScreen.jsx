@@ -77,7 +77,7 @@ const ProfileScreen = () => {
       dispatch(resetUpdateSuccess());
     }
     // rerun the side-effect logic only when 'toast' or 'updateSuccess' variable changes
-  }, [toast, updateSuccess]);
+  }, [toast, updateSuccess, dispatch]);
 
   // if 'userInfo' variable exists and is truthy
   return userInfo ? (

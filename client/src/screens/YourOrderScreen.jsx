@@ -39,7 +39,7 @@ const YourOrdersScreen = () => {
     if (userInfo) {
       dispatch(getUserOrders());
     }
-  }, []);
+  }, [dispatch, userInfo]);
 
   // Render the user's orders or redirect to the login screen if the user is not authenticated
   return userInfo ? (

@@ -95,7 +95,7 @@ const ProductScreen = () => {
       dispatch(resetQuestionError());
       setReviewBoxOpen(false);
     }
-  }, [dispatch, id, cart, reviewSend, questionSend]);
+  }, [dispatch, id, cart, reviewSend, questionSend, toast]);
 
   const changeAmount = (input) => {
     if (input === "plus") {

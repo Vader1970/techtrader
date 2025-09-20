@@ -7,7 +7,11 @@
   "scripts": {
     "client": "npm run start --prefix client",
     "server": "node server/index.js",
-    "app": "concurrently npm \"npm run server\" \"npm run client\""
+    "app": "concurrently npm \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "install-server": "cd server && npm install",
+    "postinstall": "npm run install-client && npm run install-server"
   },
   "repository": {
     "type": "git",

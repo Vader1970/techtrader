@@ -66,20 +66,33 @@ const CheckoutOrderSummary = () => {
 
   // A function that is called when the payment is successful, dispatches an action to create the order, reset the order state, and reset the cart state, and then navigates to the order success page
   const onPaymentSuccess = async (data) => {
-    dispatch(
-      createOrder({
-        orderItems: cart,
-        shippingAddress,
-        paymentMethod: data.paymentSource,
-        paymentDetails: data,
-        shippingPrice: shipping(),
-        totalPrice: total(),
-        userInfo,
-      })
-    );
-    dispatch(resetOrder());
-    dispatch(resetCart());
-    navigate("/order-success");
+    try {
+      // Wait for the order to be created successfully
+      await dispatch(
+        createOrder({
+          orderItems: cart,
+          shippingAddress,
+          paymentMethod: data.paymentSource,
+          paymentDetails: data,
+          shippingPrice: shipping(),
+          totalPrice: total(),
+          userInfo,
+        })
+      );
+      
+      // Only reset and navigate if order creation was successful
+      dispatch(resetOrder());
+      dispatch(resetCart());
+      navigate("/your-orders");
+    } catch (error) {
+      // Handle order creation errors
+      toast({
+        description: "Failed to create order. Please try again.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
   };
 
   // A function that is called when the payment fails, displays an error message

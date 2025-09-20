@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { setExpress } from "../redux/actions/cartActions";
 import { useState } from "react";
 import { setShippingAddress, setShippingAddressError } from "../redux/actions/orderActions";
-import { model } from "mongoose";
 
 const ShippingInformation = () => {
   // Initialize required state variables
@@ -50,7 +49,7 @@ const ShippingInformation = () => {
           <FormControl
             // Update error state based on form validation and input states
             onChange={
-              Object.keys(formik.errors).length === 0 && Object.keys(formik.touched).length >= 2
+              Object.keys(formik.errors).length === 0
                 ? setErrorState(false, formik.values)
                 : setErrorState(true)
             }

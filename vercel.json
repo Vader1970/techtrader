@@ -1,0 +1,4 @@
+{
+    "buildCommand": "cd client && npm run build",
+    "outputDirectory": "client/build"
+}

@@ -19,7 +19,7 @@ export const updateProduct =
         },
       };
       const { data } = await axios.put(
-        `api/products`,
+        `/api/products`,
         { brand, name, category, stock, price, id, productIsNew, description, image },
         config
       );
@@ -51,7 +51,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.delete(`api/products/${id}`, config);
+    const { data } = await axios.delete(`/api/products/${id}`, config);
     dispatch(setProducts(data));
     dispatch(setProductUpdateFlag());
     dispatch(resetError());
@@ -81,7 +81,7 @@ export const uploadProduct = (newProduct) => async (dispatch, getState) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(`api/products`, newProduct, config);
+    const { data } = await axios.post(`/api/products`, newProduct, config);
     dispatch(setProducts(data));
     dispatch(setProductUpdateFlag());
   } catch (error) {
