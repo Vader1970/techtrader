@@ -35,7 +35,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
     // Send a POST request to create a new order
-    await axios.post("api/orders", preparedOrder, config);
+    await axios.post("/api/orders", preparedOrder, config);
   } catch (error) {
     // Set an error message in the order slice if the request fails
     dispatch(
