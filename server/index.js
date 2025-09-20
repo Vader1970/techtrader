@@ -40,3 +40,6 @@ app.use("/api/orders", orderRoutes);
 app.listen(port, () => {
   console.log(`Server runs on port ${port}.`);
 });
+
+// Export the app for Vercel
+export default app;

@@ -42,7 +42,16 @@ Add these to your Vercel project settings:
 
 ## Troubleshooting:
 
-- **404 Error**: Check that vercel.json is in the root directory
+- **404 Error**: Check that vercel.json is in the root directory and routes are configured correctly
 - **Build Failures**: The root package.json now handles building the client properly
 - **Database Connection**: Ensure MONGODB_URI is correct and accessible
 - **Dependencies**: Both client and server dependencies are installed via postinstall script
+- **Routing Issues**: Make sure API routes start with `/api/` and all other routes serve the React app
+- **Server Export**: The server/index.js now exports the app for Vercel compatibility
+
+## Common Issues:
+
+1. **404 on all routes**: Check vercel.json routing configuration
+2. **API routes not working**: Ensure server/index.js exports the app
+3. **Static files not loading**: Check that static file routes are configured in vercel.json
+4. **React Router not working**: Make sure catch-all route serves index.html
