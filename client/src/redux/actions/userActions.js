@@ -155,7 +155,7 @@ export const getUserOrders = () => async (dispatch, getSate) => {
     };
 
     // makes an API call using axios to get the user's orders with the given user ID, and with the config object as options
-    const { data } = await axios.get(`/api/users/${userInfo._id}`, config);
+    const { data } = await axios.get(`/api/orders/user`, config);
 
     // dispatches the setUserOrders action with the user's orders as payload
     dispatch(setUserOrders(data));

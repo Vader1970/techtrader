@@ -34,8 +34,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
         "Content-Type": "application/json",
       },
     };
-    // Send a POST request to create a new order
-    await axios.post("/api/orders", preparedOrder, config);
+    // Send a POST request to create a new order and return the created order
+    const { data } = await axios.post("/api/orders", preparedOrder, config);
+    return data; // Return the created order data
   } catch (error) {
     // Set an error message in the order slice if the request fails
     dispatch(
@@ -47,6 +48,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
           : "An unexpected error has occured. Please try again later."
       )
     );
+    throw error; // Re-throw the error so it can be handled by the caller
   }
 };
 
