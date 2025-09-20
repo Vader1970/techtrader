@@ -17,12 +17,20 @@ export default async function handler(req, res) {
         return res.status(400).json({ message: "Order data is required" });
       }
 
+      // Log the order data for debugging
+      console.log("Order data received:", JSON.stringify(orderData, null, 2));
+
       const order = await Order.create(orderData);
+      console.log("Order created successfully:", order._id);
       res.status(201).json(order);
     } else {
       res.status(405).json({ message: "Method not allowed" });
     }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Error creating order:", error);
+    res.status(500).json({ 
+      error: error.message,
+      details: error.toString()
+    });
   }
 }

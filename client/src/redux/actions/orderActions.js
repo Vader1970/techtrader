@@ -24,8 +24,14 @@ export const createOrder = (order) => async (dispatch, getState) => {
     user: { userInfo },
   } = getState();
 
-  // Add the shipping address to the order
-  const preparedOrder = { ...order, shippingAddress };
+  // Add the shipping address and user information to the order
+  const preparedOrder = { 
+    ...order, 
+    shippingAddress,
+    user: userInfo._id,
+    username: userInfo.name,
+    email: userInfo.email
+  };
   try {
     // Set the authorization header and content type for the request
     const config = {
