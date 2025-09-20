@@ -43,8 +43,9 @@ Add these to your Vercel project settings:
 ## New Architecture:
 
 - **Frontend**: React app built from `client/` directory
-- **Backend**: Express API in `api/index.js` (Vercel serverless function)
-- **Routing**: `/api/*` → API function, `/*` → React app
+- **Backend**: Express API in `api/` directory (Vercel serverless functions)
+- **Routing**: `/api/*` → API functions, `/*` → React app
+- **Simplified**: Uses Vercel's automatic detection for API routes
 
 ## Troubleshooting:
 
