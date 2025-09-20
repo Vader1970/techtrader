@@ -36,10 +36,12 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 
-// Starting the server
-app.listen(port, () => {
-  console.log(`Server runs on port ${port}.`);
-});
+// Only start the server if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Server runs on port ${port}.`);
+  });
+}
 
 // Export the app for Vercel
 export default app;

@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "server/index.js",
+            "src": "api/index.js",
             "use": "@vercel/node"
         },
         {
@@ -16,23 +16,7 @@
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "/server/index.js"
-        },
-        {
-            "src": "/static/(.*)",
-            "dest": "/client/build/static/$1"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/client/build/favicon.ico"
-        },
-        {
-            "src": "/asset-manifest.json",
-            "dest": "/client/build/asset-manifest.json"
-        },
-        {
-            "src": "/manifest.json",
-            "dest": "/client/build/manifest.json"
+            "dest": "/api/index.js"
         },
         {
             "src": "/(.*)",

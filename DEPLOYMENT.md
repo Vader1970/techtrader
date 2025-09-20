@@ -37,8 +37,14 @@ Add these to your Vercel project settings:
 
 1. **Root package.json** runs `postinstall` to install dependencies in both client and server
 2. **Client build** runs `cd client && npm run build` 
-3. **Server** is deployed as a Node.js function
-4. **Routing** sends `/api/*` to server, everything else to client build
+3. **API** is deployed from `api/index.js` as a Node.js function
+4. **Routing** sends `/api/*` to API function, everything else to client build
+
+## New Architecture:
+
+- **Frontend**: React app built from `client/` directory
+- **Backend**: Express API in `api/index.js` (Vercel serverless function)
+- **Routing**: `/api/*` → API function, `/*` → React app
 
 ## Troubleshooting:
 
