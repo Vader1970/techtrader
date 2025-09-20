@@ -1,4 +1,19 @@
 {
     "buildCommand": "cd client && npm run build",
-    "outputDirectory": "client/build"
+    "outputDirectory": "client/build",
+    "functions": {
+        "api/images/upload/index.js": {
+            "maxDuration": 30
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/images/(.*)",
+            "destination": "/api/images/upload"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
 }

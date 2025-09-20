@@ -42,9 +42,10 @@ Add these to your Vercel project settings:
 ## New Architecture:
 
 - **Frontend**: React app built from `client/` directory
-- **Backend**: Express API in `api/` directory (Vercel serverless functions)
-- **Routing**: `/api/*` → API functions, `/*` → React app
-- **Simplified**: Uses Vercel's automatic detection for API routes
+- **Backend**: Express server in `server/` directory (handles most API calls)
+- **Image Upload**: Single Vercel serverless function at `api/images/upload/`
+- **Routing**: `/api/images/*` → Vercel function, all other `/api/*` → Express server
+- **Optimized**: Only 1 Vercel function (under the 12 function limit)
 
 ## Troubleshooting:
 
